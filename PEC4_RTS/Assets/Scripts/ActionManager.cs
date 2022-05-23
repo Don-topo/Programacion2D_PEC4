@@ -6,6 +6,7 @@ public class ActionManager : MonoBehaviour
 {
 
     private GameObject selectedUnit = null;
+    private GameObject[] selectedUnits = null;
     private LineRenderer line;
     private Vector2 startMousePosition, currentMousePosition;
 
@@ -43,6 +44,7 @@ public class ActionManager : MonoBehaviour
                 if(selectedUnit != null)
                 {
                     selectedUnit.GetComponent<SoldierController>().DiselectSoldier();
+                    DiselectMultipleUnits();
                     selectedUnit = null;
                 }
                 
@@ -78,6 +80,42 @@ public class ActionManager : MonoBehaviour
         if(Input.GetMouseButtonUp(0))
         {
             line.positionCount = 0;
+            Vector3 leftUpperCorner = new Vector3(startMousePosition.x, startMousePosition.y, 0f);
+            Vector3 rightUpperCorner = new Vector3(currentMousePosition.x, startMousePosition.y, 0f);
+            Vector3 leftBottomCorner = new Vector3(currentMousePosition.x, startMousePosition.y, 0f);
+            Vector3 rightBottomCorner = new Vector3(currentMousePosition.x, currentMousePosition.y, 0f);
+            var test = new Vector3(
+                Mathf.Abs(startMousePosition.x - currentMousePosition.x),
+                Mathf.Abs(startMousePosition.y - currentMousePosition.y),
+                0f
+            );
+            RaycastHit2D[] hits = Physics2D.BoxCastAll(((leftUpperCorner + rightUpperCorner + leftBottomCorner + rightBottomCorner) / 4), test, 0, new Vector2(0,0));
+            foreach(RaycastHit2D raycastHit2D in hits)
+            {
+                raycastHit2D.collider.gameObject.GetComponent<SoldierController>().SelectSoldier();
+            }
+        }       
+    }
+
+    public void SetAreaSelected(List<GameObject> newSelected)
+    {
+        selectedUnits = newSelected.ToArray();
+        SelectMultipleUnits();
+    }
+
+    private void SelectMultipleUnits()
+    {
+        foreach(GameObject go in selectedUnits)
+        {
+            go.GetComponent<SoldierController>().SelectSoldier();
+        }
+    }
+
+    private void DiselectMultipleUnits()
+    {
+        foreach(GameObject gameObject in selectedUnits)
+        {
+            gameObject.GetComponent<SoldierController>().DiselectSoldier();
         }
     }
 }
