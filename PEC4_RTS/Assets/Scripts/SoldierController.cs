@@ -57,6 +57,9 @@ public class SoldierController : MonoBehaviour
     public void Attack()
     {
         animator.SetTrigger("Attack");
+        // Check if I am in range
+        // Move if need
+        // If I am in range attack
     }
 
     public void Death()
