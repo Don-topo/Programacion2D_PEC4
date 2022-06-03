@@ -124,7 +124,7 @@ public class ActionManager : MonoBehaviour
         }
     }
 
-    private void AttackUnnits()
+    private void AttackUnits()
     {
 
     }
