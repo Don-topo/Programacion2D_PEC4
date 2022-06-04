@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SoldierController : MonoBehaviour
 {
@@ -8,20 +9,34 @@ public class SoldierController : MonoBehaviour
     public int attackDamage = 1;
     public int healthPoints = 1;
     public GameObject selectedGameObject;
+    public NavMeshAgent agent;
+
     private Animator animator;
     private bool isFacingRight = true;
-    private Coroutine movingCoroutine;
+    private Vector3 lastPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        lastPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        agent.updateRotation = false;
+        if(lastPosition.x < transform.position.x && !isFacingRight)
+        {
+            Flip();
+        } else if(lastPosition.x > transform.position.x && isFacingRight)
+        {
+            Flip();
+        }
+        lastPosition = transform.position;
     }
 
     public void SelectSoldier()
@@ -36,22 +51,8 @@ public class SoldierController : MonoBehaviour
 
     public void Move(Vector3 newPosition)
     {
-        if(movingCoroutine != null)
-        {
-            StopCoroutine(movingCoroutine);
-        }        
-        movingCoroutine = StartCoroutine(Moving(newPosition));
-    }
-
-    IEnumerator Moving(Vector3 newPosition)
-    {
-        while(transform.position != newPosition)
-        {
-            animator.SetBool("Moving", true);            
-            transform.position = Vector3.Lerp(transform.position, newPosition,  0.1f* Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
-        animator.SetBool("Moving", false);
+        agent.SetDestination(newPosition);
+        agent.updateRotation = false;
     }
 
     public void Attack()

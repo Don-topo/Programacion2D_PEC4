@@ -17,7 +17,7 @@ public class ActionManager : MonoBehaviour
         selectedUnits = new List<GameObject>();
         line = GetComponent<LineRenderer>();
         line.positionCount = 0;
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+        //Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);        
     }
 
     void Update()
@@ -44,8 +44,7 @@ public class ActionManager : MonoBehaviour
             }
             else
             {
-                DiselectUnits();
-                
+                DiselectUnits();                
             }
         }
 
@@ -87,10 +86,12 @@ public class ActionManager : MonoBehaviour
                 Mathf.Abs(startMousePosition.y - currentMousePosition.y),
                 0f
             );
-            RaycastHit2D[] hits = Physics2D.BoxCastAll(((leftUpperCorner + rightUpperCorner + leftBottomCorner + rightBottomCorner) / 4), test, 0, new Vector2(0,0));            
+            RaycastHit2D[] hits = Physics2D.BoxCastAll((leftUpperCorner + rightUpperCorner + leftBottomCorner + rightBottomCorner) / 4, test, 0, new Vector2(0,0));            
             foreach(RaycastHit2D raycastHit2D in hits)
             {
-                selectedUnits.Add(raycastHit2D.collider.gameObject);                
+                if (raycastHit2D.collider.CompareTag("Soldier")) {
+                    selectedUnits.Add(raycastHit2D.collider.gameObject);
+                }                
             }
             SelectUnits();
         }       
