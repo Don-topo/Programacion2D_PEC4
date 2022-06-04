@@ -8,6 +8,27 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: eeb3060497d594e448065c02ffcf1f1b
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d20c1661b9b00a845aeb4721db568432
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 41f0ef5463529c94a9e3d8d6aa8d8b89
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: dbc33e277282ecf4b8b3d2f57ae47612
+  - enabled: 1
+    path: Assets/Scenes/Patrol.unity
+    guid: f0ad6d4c5ac73d04a85bf14d08911c1d
+  - enabled: 1
+    path: Assets/Scenes/Rescue.unity
+    guid: 421b9cb6700e99a4385d51d3dc196249
+  - enabled: 1
+    path: Assets/Scenes/SearchAndDestroy.unity
+    guid: f14439272a7796e46a8dbaa0cd97b32f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 26f1d762a277fcc46ab7b49a20c181fa, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 228e57b3d59e6454a8209bf6b677335d, type: 2}
