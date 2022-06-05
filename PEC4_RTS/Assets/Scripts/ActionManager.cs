@@ -9,7 +9,10 @@ public class ActionManager : MonoBehaviour
     private LineRenderer line;
     private Vector2 startMousePosition, currentMousePosition;
 
-    public Texture2D cursorTexture;
+    public Texture2D regularCursorTexture;
+    public Texture2D enemyCursorTexture;
+    public Texture2D alyCursorTexture;
+    public GameObject targetPositionPrefab;
 
 
     private void Start()
@@ -17,7 +20,7 @@ public class ActionManager : MonoBehaviour
         selectedUnits = new List<GameObject>();
         line = GetComponent<LineRenderer>();
         line.positionCount = 0;
-        //Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);        
+        Cursor.SetCursor(regularCursorTexture, Vector2.zero, CursorMode.ForceSoftware);                
     }
 
     void Update()
@@ -31,13 +34,15 @@ public class ActionManager : MonoBehaviour
             line.SetPosition(2, new Vector2(startMousePosition.x, startMousePosition.y));
             line.SetPosition(3, new Vector2(startMousePosition.x, startMousePosition.y));
             DiselectUnits();
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            var test = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            test.z = 0;
 
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
+            
             if (hit.collider != null)
             {
                 if (hit.collider.gameObject.CompareTag("Soldier"))
                 {
-                    Debug.Log("Soldier selected");
                     selectedUnits.Add(hit.collider.gameObject);
                     SelectUnits();
                 }
@@ -52,12 +57,9 @@ public class ActionManager : MonoBehaviour
         {
             if(selectedUnits.Capacity > 0)
             {
-                // TODO Obtain point
                 Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 newPosition.z = 0f;
-                Debug.Log("Click position " + newPosition);
                 MoveUnits(newPosition);
-                // TODO Move unit
             }
         }
 
@@ -94,7 +96,28 @@ public class ActionManager : MonoBehaviour
                 }                
             }
             SelectUnits();
-        }       
+        }        
+    }
+
+    void FixedUpdate()
+    {
+        RaycastHit2D hit1 = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
+        if (hit1.collider != null)
+        {
+            switch (hit1.collider.tag)
+            {
+                case "Soldier":
+                    Cursor.SetCursor(alyCursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+                    break;
+                case "Enemy":
+                    Cursor.SetCursor(enemyCursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+                    break;
+            }
+        }
+        else
+        {
+            Cursor.SetCursor(regularCursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+        }
     }
 
 
@@ -103,7 +126,6 @@ public class ActionManager : MonoBehaviour
         foreach(GameObject gameObject in selectedUnits)
         {
             gameObject.GetComponent<SoldierController>().SelectSoldier();
-            Debug.Log("SetObject");
         }
     }
 
@@ -111,7 +133,6 @@ public class ActionManager : MonoBehaviour
     {
         foreach(GameObject gameObject in selectedUnits)
         {
-            Debug.Log("Delete object");
             gameObject.GetComponent<SoldierController>().DiselectSoldier();
         }
         selectedUnits.Clear();
@@ -119,6 +140,10 @@ public class ActionManager : MonoBehaviour
 
     private void MoveUnits(Vector3 position)
     {
+        if(selectedUnits.ToArray().Length > 0)
+        {
+            Instantiate(targetPositionPrefab, position, Quaternion.identity);
+        }        
         foreach(GameObject gameObject in selectedUnits)
         {
             gameObject.GetComponent<SoldierController>().Move(position);

@@ -75,4 +75,9 @@ public class SoldierController : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, 15);
+    }
 }

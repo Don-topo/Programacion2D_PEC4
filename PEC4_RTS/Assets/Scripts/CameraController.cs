@@ -5,7 +5,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private Camera cam;
-    private float scrollSpeed = 15f; 
+    private float scrollSpeed = 5f;
+    private int maxScreenMargin = 30;
+    private float screenOffset = 0.95f;
+    private float minOrthographicSize = 1f;
+    private float maxOrthographicSize = 7f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +20,29 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f && cam.orthographicSize > 1f)
+        if(Input.GetAxis("Mouse ScrollWheel") > 0f && cam.orthographicSize > minOrthographicSize)
         {
             cam.orthographicSize--;
-        } else if (Input.GetAxis("Mouse ScrollWheel") < 0f && cam.orthographicSize < 7f)
+        } else if (Input.GetAxis("Mouse ScrollWheel") < 0f && cam.orthographicSize < maxOrthographicSize)
         {
             cam.orthographicSize++;
         }
-        // TODO Move camera if mouse is on corners
-        if (Input.mousePosition.y >= Screen.height * 0.95)
+
+        if (Input.mousePosition.y >= Screen.height * screenOffset)
+        {
+            transform.Translate(scrollSpeed * Time.deltaTime * Vector3.up, Space.World);
+        }
+        else if(Input.mousePosition.y <= maxScreenMargin * screenOffset)
+        {
+            transform.Translate(scrollSpeed * Time.deltaTime * Vector3.down, Space.World);
+        }
+        if(Input.mousePosition.x >= Screen.width * screenOffset)
         {
             transform.Translate(scrollSpeed * Time.deltaTime * Vector3.right, Space.World);
+        }
+        else if(Input.mousePosition.x <= maxScreenMargin * screenOffset)
+        {
+            transform.Translate(scrollSpeed * Time.deltaTime * Vector3.left, Space.World);
         }
     }
 
