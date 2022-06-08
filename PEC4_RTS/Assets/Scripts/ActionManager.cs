@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class ActionManager : MonoBehaviour
 {
@@ -8,19 +10,21 @@ public class ActionManager : MonoBehaviour
     private List<GameObject> selectedUnits;
     private LineRenderer line;
     private Vector2 startMousePosition, currentMousePosition;
+    private GameObject enemySelected;
 
     public Texture2D regularCursorTexture;
     public Texture2D enemyCursorTexture;
     public Texture2D alyCursorTexture;
     public GameObject targetPositionPrefab;
-
+    public GameObject unitDetailsParent;
 
     private void Start()
     {
         selectedUnits = new List<GameObject>();
         line = GetComponent<LineRenderer>();
         line.positionCount = 0;
-        Cursor.SetCursor(regularCursorTexture, Vector2.zero, CursorMode.ForceSoftware);                
+        Cursor.SetCursor(regularCursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+        unitDetailsParent.SetActive(false);
     }
 
     void Update()
@@ -34,6 +38,7 @@ public class ActionManager : MonoBehaviour
             line.SetPosition(2, new Vector2(startMousePosition.x, startMousePosition.y));
             line.SetPosition(3, new Vector2(startMousePosition.x, startMousePosition.y));
             DiselectUnits();
+            DiselectEnemy();
             var test = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             test.z = 0;
 
@@ -49,7 +54,8 @@ public class ActionManager : MonoBehaviour
             }
             else
             {
-                DiselectUnits();                
+                DiselectUnits();
+                DiselectEnemy();
             }
         }
 
@@ -57,9 +63,24 @@ public class ActionManager : MonoBehaviour
         {
             if(selectedUnits.Capacity > 0)
             {
-                Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                newPosition.z = 0f;
-                MoveUnits(newPosition);
+                RaycastHit2D hitEnemy = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
+                if(hitEnemy.collider != null)
+                {
+                    if (hitEnemy.collider.CompareTag("Enemy"))
+                    {
+                        DiselectEnemy();
+                        enemySelected = hitEnemy.collider.gameObject;
+                        hitEnemy.collider.GetComponent<EnemyController>().SelectEnemy();
+                        AttackUnits();
+                    }
+                }
+                else
+                {
+                    Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    newPosition.z = 0f;
+                    MoveUnits(newPosition);
+                    DiselectEnemy();
+                }                
             }
         }
 
@@ -125,6 +146,7 @@ public class ActionManager : MonoBehaviour
     {
         foreach(GameObject gameObject in selectedUnits)
         {
+            SetUnitDetails(gameObject.GetComponent<SoldierController>());
             gameObject.GetComponent<SoldierController>().SelectSoldier();
         }
     }
@@ -136,6 +158,7 @@ public class ActionManager : MonoBehaviour
             gameObject.GetComponent<SoldierController>().DiselectSoldier();
         }
         selectedUnits.Clear();
+        unitDetailsParent.SetActive(false);
     }
 
     private void MoveUnits(Vector3 position)
@@ -152,6 +175,40 @@ public class ActionManager : MonoBehaviour
 
     private void AttackUnits()
     {
+        foreach (GameObject unit in selectedUnits)
+        {
+            unit.GetComponent<SoldierController>().Attack(enemySelected);
+        }
+    }
 
+    private void DiselectEnemy()
+    {
+        if(enemySelected != null)
+        {
+            enemySelected.GetComponent<EnemyController>().DiselectEnemy();
+            enemySelected = null;
+        }
+    }
+
+    private void SetUnitDetails(SoldierController soldierController)
+    {
+        GameObject image = unitDetailsParent.transform.Find("UnitImage").gameObject;
+        GameObject health = unitDetailsParent.transform.Find("Health").gameObject.transform.Find("HealthText").gameObject;
+        GameObject energy = unitDetailsParent.transform.Find("Energy").gameObject.transform.Find("EnergyText").gameObject;
+        GameObject armor = unitDetailsParent.transform.Find("Armor").gameObject.transform.Find("ArmorText").gameObject;
+        GameObject attackDamage = unitDetailsParent.transform.Find("AttackDamage").gameObject.transform.Find("AttackDamageText").gameObject;
+        GameObject attackSpeed = unitDetailsParent.transform.Find("AttackSpeed").gameObject.transform.Find("AttackSpeedText").gameObject;
+        GameObject movementSpeed = unitDetailsParent.transform.Find("MovementSpeed").gameObject.transform.Find("MovementSpeedText").gameObject;
+        GameObject unitName = unitDetailsParent.transform.Find("UnitNameText").gameObject;
+
+        image.GetComponent<Image>().sprite = soldierController.unitImage;
+        health.GetComponent<TextMeshProUGUI>().SetText(soldierController.currenthealth.ToString() + "/" + soldierController.healthPoints.ToString());
+        energy.GetComponent<TextMeshProUGUI>().SetText(soldierController.currentEnergy.ToString() + "/" + soldierController.energyPoints.ToString());
+        armor.GetComponent<TextMeshProUGUI>().SetText(soldierController.armor.ToString());
+        attackDamage.GetComponent<TextMeshProUGUI>().SetText(soldierController.attackDamage.ToString());
+        attackSpeed.GetComponent<TextMeshProUGUI>().SetText(soldierController.attackSpeed.ToString());
+        movementSpeed.GetComponent<TextMeshProUGUI>().SetText(soldierController.movementSpeed.ToString());
+        unitName.GetComponent<TextMeshProUGUI>().SetText(soldierController.unitName);
+        unitDetailsParent.SetActive(true);
     }
 }
