@@ -1,0 +1,32 @@
+{
+	"collaborators": [
+	{
+		"name": "Matt Walkden",
+		"aportation": "Free Robot Warfare Pack"
+	},
+	{
+		"name": "Ladadori",
+		"aportation": "Realistic avatars for RPG"
+	},
+	{
+		"name": "Unity Technologies",
+		"aportation": "Pixel Cursors"
+	},
+	{
+		"name": "Unity Technologies",
+		"aportation": "Sci-fi Interface Frames"
+	},
+	{
+		"name": "Unity Technologies",
+		"aportation": "Retro Info Boxes"
+	},
+	{
+		"name": "Ansimuz",
+		"aportation": "Warped City"
+	},
+	{
+		"name": "Ansimuz",
+		"aportation": "Warped City 2"
+	}
+	]
+}

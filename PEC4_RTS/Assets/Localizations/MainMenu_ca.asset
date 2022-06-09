@@ -17,6 +17,34 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: fc741578ffb3df14e9cc7f6aeb251afe, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 5432033029607424
+    m_Localized: Campanya
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5432196091564032
+    m_Localized: Sortir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5432258863517696
+    m_Localized: Opcions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436250851069952
+    m_Localized: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436307683889152
+    m_Localized: "Misi\xF3 1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436380429897728
+    m_Localized: "Misi\xF3 2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436473325342720
+    m_Localized: "Misi\xF3 3"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

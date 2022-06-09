@@ -14,7 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: MainMenu
   m_TableCollectionNameGuidString: fc741578ffb3df14e9cc7f6aeb251afe
-  m_Entries: []
+  m_Entries:
+  - m_Id: 5432033029607424
+    m_Key: Campaign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5432196091564032
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5432258863517696
+    m_Key: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436250851069952
+    m_Key: Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436307683889152
+    m_Key: Mission1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436380429897728
+    m_Key: Mission2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5436473325342720
+    m_Key: Mission3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
