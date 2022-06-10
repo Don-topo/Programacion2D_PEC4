@@ -46,5 +46,41 @@ MonoBehaviour:
     m_Localized: Mission 3
     m_Metadata:
       m_Items: []
+  - m_Id: 5740398943358976
+    m_Localized: Sound effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5740569546674176
+    m_Localized: Banground music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5740702875209728
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5747102238068736
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5747150761971712
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5752837638410240
+    m_Localized: Quit the game?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5753810884710400
+    m_Localized: back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5784772062433280
+    m_Localized: Missions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5790458435555328
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

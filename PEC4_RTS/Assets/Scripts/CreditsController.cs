@@ -14,7 +14,6 @@ public class CreditsController : MonoBehaviour
 
     private TextMeshProUGUI creditsText;
     private string creditsMapped;
-    private bool pause = false;
     private int waitTimeTransition = 1;
 
     // Start is called before the first frame update
@@ -29,9 +28,9 @@ public class CreditsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !pause)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(0)))
         {
-            pause = !pause;
+            EndCredits();
         }
         transform.position = new Vector3(transform.position.x, transform.position.y + (velocity * Time.deltaTime), transform.position.z);
         if(transform.position.y > endPosition.position.y) {
@@ -58,7 +57,7 @@ public class CreditsController : MonoBehaviour
     IEnumerator LoadScene()
     {
         animator.SetTrigger("StartTransition");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(waitTimeTransition);
         SceneManager.LoadScene("MainMenu");
     }
 

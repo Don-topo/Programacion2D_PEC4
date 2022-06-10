@@ -46,5 +46,41 @@ MonoBehaviour:
     m_Localized: "Misi\xF3 3"
     m_Metadata:
       m_Items: []
+  - m_Id: 5740398943358976
+    m_Localized: Efectes de so
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5740569546674176
+    m_Localized: "M\xFAsica de fons"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5740702875209728
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5747102238068736
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5747150761971712
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5752837638410240
+    m_Localized: Sortir del joc?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5753810884710400
+    m_Localized: Tornar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5784772062433280
+    m_Localized: Misions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5790458435555328
+    m_Localized: "Cr\xE9dits"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
