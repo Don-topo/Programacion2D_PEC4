@@ -37,7 +37,7 @@ public class ActionManager : MonoBehaviour
             line.SetPosition(1, new Vector2(startMousePosition.x, startMousePosition.y));
             line.SetPosition(2, new Vector2(startMousePosition.x, startMousePosition.y));
             line.SetPosition(3, new Vector2(startMousePosition.x, startMousePosition.y));
-            DiselectUnits();
+            //DiselectUnits();
             DiselectEnemy();
             var test = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             test.z = 0;
@@ -54,7 +54,7 @@ public class ActionManager : MonoBehaviour
             }
             else
             {
-                DiselectUnits();
+                //DiselectUnits();
                 DiselectEnemy();
             }
         }
@@ -117,7 +117,8 @@ public class ActionManager : MonoBehaviour
                 }                
             }
             SelectUnits();
-        }        
+        }
+        UpdateUI();
     }
 
     void FixedUpdate()
@@ -138,6 +139,15 @@ public class ActionManager : MonoBehaviour
         else
         {
             Cursor.SetCursor(regularCursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+        }
+    }
+
+    private void UpdateUI()
+    {
+        if(selectedUnits.ToArray().Length > 0)
+        {
+            SoldierController soldier = selectedUnits[0].GetComponent<SoldierController>();
+            SetUnitDetails(soldier);
         }
     }
 

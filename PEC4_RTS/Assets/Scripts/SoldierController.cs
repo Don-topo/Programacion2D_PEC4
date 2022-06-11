@@ -18,10 +18,13 @@ public class SoldierController : MonoBehaviour
     public NavMeshAgent agent;
     public Sprite unitImage;
     public string unitName = "Stg. Hammer";
+    public AudioClip[] selectUnitClips;
 
     private Animator animator;
     private bool isFacingRight = true;
     private Vector3 lastPosition;
+    private bool canAttack = false;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,7 @@ public class SoldierController : MonoBehaviour
         agent.updateUpAxis = false;
         lastPosition = transform.position;
         StartCoroutine(RestoreEnergy());
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,7 +58,13 @@ public class SoldierController : MonoBehaviour
 
     public void SelectSoldier()
     {
-        selectedGameObject.SetActive(true);
+        selectedGameObject.SetActive(true);        
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = selectUnitClips[Random.Range(0, selectUnitClips.Length)];
+            audioSource.Play();
+        }
+        
     }
 
     public void DiselectSoldier()
@@ -71,43 +81,40 @@ public class SoldierController : MonoBehaviour
 
     public void Attack(GameObject enemy)
     {
+        Debug.Log("Attack");
         // Check if I am in range
         if (CheckAttackRange(enemy))
         {
-            // I am in range
-            StopMovement();
-            if (CheckVision(enemy))
-            {
-                // Can I shoot?
-                enemy.GetComponent<EnemyController>().GetHit(attackDamage);
-                animator.SetTrigger("Attack");
-            }
-            else
-            {
-                // There is a obstacle between us. We need to move
-            }
+            PerformAttack(enemy);
         }
         else
         {
             // Out of range, need to move
-        }
-        // Move if need
-        // If I am in range attack
-        // Raycast to enemy and attack
-        // Face the enemy
-        if(enemy.transform.position.x >= transform.position.x && !isFacingRight)
-        {
-            Flip();
-        }
-        else if(enemy.transform.position.x < transform.position.x && isFacingRight)
-        {
-            Flip();
-        }
+            StartCoroutine(MoveOnRange(enemy));
+        }        
     }
 
     public void Death()
     {
         animator.SetTrigger("Death");
+    }
+
+    private void PerformAttack(GameObject enemy)
+    {
+        Debug.Log("Perform attack");
+        // I am in range
+        StopMovement();
+        if (CheckVision(enemy))
+        {
+            FaceEnemy(enemy);
+            canAttack = true;
+            StartCoroutine(AttackContinous(enemy));
+        }
+        else
+        {
+            // There is a obstacle between us. We need to move
+            MoveToAvoidObstacle(enemy);
+        }
     }
 
     private void Flip()
@@ -116,6 +123,18 @@ public class SoldierController : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void FaceEnemy(GameObject enemy)
+    {
+        if (enemy.transform.position.x >= transform.position.x && !isFacingRight)
+        {
+            Flip();
+        }
+        else if (enemy.transform.position.x < transform.position.x && isFacingRight)
+        {
+            Flip();
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -132,21 +151,17 @@ public class SoldierController : MonoBehaviour
 
     private bool CheckAttackRange(GameObject enemy)
     {
+        Debug.Log("Check Attack range");
         Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 enemyPosition = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
-        float distance = 1000f;
-        GetComponent<BoxCollider2D>().enabled = false;
-        RaycastHit2D enemyHit = Physics2D.Linecast(playerPosition, enemyPosition);
-        if (enemyHit.collider != null)
-        {
-            distance = enemyHit.distance;
-        }
-        GetComponent<BoxCollider2D>().enabled = true;
+        float distance = Vector2.Distance(playerPosition, enemyPosition);
+        //Debug.Log("Distance: " + distance);
         return distance < attackRange;
     }
 
     private bool CheckVision(GameObject enemy)
     {
+        Debug.Log("Check Vision");
         Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 enemyPosition = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
         bool hit = false;
@@ -163,6 +178,55 @@ public class SoldierController : MonoBehaviour
         return hit;
     }
 
+    private void MoveToAvoidObstacle(GameObject enemy)
+    {
+        Debug.Log("Move to Avoid obstacle");
+        Vector3 dir = (transform.position - enemy.transform.position).normalized;
+        float offsetX = 1.5f;
+        float offsetY = 1.5f;
+        Debug.Log("Dir:" + dir);
+        //Top left
+        if(dir.x < 0 && dir.y > 0)
+        {
+            offsetY = 0f;
+            StartCoroutine(MoveToAttack(enemy, offsetX, offsetY));
+        }
+        // Top right
+        else if(dir.x > 0 && dir.y < 0)
+        {
+            offsetY = 0f;
+            offsetX *= -1;
+            StartCoroutine(MoveToAttack(enemy, offsetX, offsetY));
+        }
+        // Bottom left
+        else if(dir.x < 0 && dir.y < 0){
+            offsetY = 0f;
+            StartCoroutine(MoveToAttack(enemy, offsetX, offsetY));
+        }
+        // Botom Right
+        else if(dir.x > 0 && dir.y > 0)
+        {
+            offsetY = 0f;
+            offsetX *= -1;
+            StartCoroutine(MoveToAttack(enemy, offsetX, offsetY));
+        }        
+    }
+
+    IEnumerator MoveOnRange(GameObject enemy)
+    {
+        Debug.Log("Move on Range");
+        bool inRange = false;
+        agent.SetDestination(enemy.transform.position);
+        yield return new WaitForFixedUpdate();
+        while (!inRange)
+        {
+            yield return new WaitForFixedUpdate();
+            inRange = CheckAttackRange(enemy);
+        }
+        agent.SetDestination(transform.position);
+        PerformAttack(enemy);
+    }
+
 
     IEnumerator RestoreEnergy()
     {
@@ -173,6 +237,58 @@ public class SoldierController : MonoBehaviour
                 currentEnergy++;
             }
             yield return new WaitForSeconds(1);
+        }
+    }
+
+    IEnumerator AttackContinous(GameObject enemy)
+    {
+        Debug.Log("Attack Continous");
+        while (canAttack)
+        {
+            animator.SetTrigger("Attack");
+            enemy.GetComponent<EnemyController>().GetHit(attackDamage);
+            yield return new WaitForSeconds(attackSpeed);
+            if(enemy.GetComponent<EnemyController>().healthPoints <= 0)
+            {
+                canAttack = false;
+            }
+        }        
+    }
+
+    public bool IsOtherEnemyInRange()
+    {
+        Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
+        Collider2D[] hit = Physics2D.OverlapCircleAll(playerPosition, attackRange);
+        foreach(Collider2D collision in hit)
+        {
+            if (collision.CompareTag("Enemy")){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    IEnumerator MoveToAttack(GameObject enemy, float offsetX, float offsetY)
+    {
+        Debug.Log("Move to attack");
+        int tries = 4;
+        while(!CheckVision(enemy) && tries > 0)
+        {
+            agent.SetDestination(new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z));
+            animator.SetBool("Moving", true);
+            yield return new WaitForFixedUpdate();
+            while(agent.remainingDistance != 0)
+            {
+                yield return new WaitForSeconds(1);
+            }
+            tries--;
+        }
+        StopMovement();
+        if (CheckVision(enemy) && CheckAttackRange(enemy))
+        {            
+            canAttack = true;
+            FaceEnemy(enemy);
+            StartCoroutine(AttackContinous(enemy));
         }
     }
 }
