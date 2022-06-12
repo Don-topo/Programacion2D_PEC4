@@ -14,11 +14,16 @@ public class SoldierController : MonoBehaviour
     public int currenthealth = 10;
     public int energyPoints = 10;
     public int currentEnergy = 10;
+    public float energyRestore = 1f;
+    public float healthRestore = 6f;
     public GameObject selectedGameObject;
     public NavMeshAgent agent;
     public Sprite unitImage;
     public string unitName = "Stg. Hammer";
     public AudioClip[] selectUnitClips;
+    public GameObject healthbar;
+    public GameObject remainingHealth;
+    public GameObject habilityArea;
 
     private Animator animator;
     private bool isFacingRight = true;
@@ -35,7 +40,9 @@ public class SoldierController : MonoBehaviour
         agent.updateUpAxis = false;
         lastPosition = transform.position;
         StartCoroutine(RestoreEnergy());
+        StartCoroutine(RestoreHealth());
         audioSource = GetComponent<AudioSource>();
+        UpdateHealthBar();
     }
 
     // Update is called once per frame
@@ -54,22 +61,24 @@ public class SoldierController : MonoBehaviour
         {
             animator.SetBool("Moving", false);
         }
+        UpdateHealthBar();
     }
 
     public void SelectSoldier()
     {
-        selectedGameObject.SetActive(true);        
+        selectedGameObject.SetActive(true);
+        healthbar.SetActive(true);
         if (!audioSource.isPlaying)
         {
             audioSource.clip = selectUnitClips[Random.Range(0, selectUnitClips.Length)];
             audioSource.Play();
-        }
-        
+        }        
     }
 
     public void DiselectSoldier()
     {
         selectedGameObject.SetActive(false);
+        healthbar.SetActive(false);
     }
 
     public void Move(Vector3 newPosition)
@@ -81,7 +90,6 @@ public class SoldierController : MonoBehaviour
 
     public void Attack(GameObject enemy)
     {
-        Debug.Log("Attack");
         // Check if I am in range
         if (CheckAttackRange(enemy))
         {
@@ -101,7 +109,6 @@ public class SoldierController : MonoBehaviour
 
     private void PerformAttack(GameObject enemy)
     {
-        Debug.Log("Perform attack");
         // I am in range
         StopMovement();
         if (CheckVision(enemy))
@@ -151,17 +158,14 @@ public class SoldierController : MonoBehaviour
 
     private bool CheckAttackRange(GameObject enemy)
     {
-        Debug.Log("Check Attack range");
         Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 enemyPosition = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
         float distance = Vector2.Distance(playerPosition, enemyPosition);
-        //Debug.Log("Distance: " + distance);
         return distance < attackRange;
     }
 
     private bool CheckVision(GameObject enemy)
     {
-        Debug.Log("Check Vision");
         Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 enemyPosition = new Vector2(enemy.transform.position.x, enemy.transform.position.y);
         bool hit = false;
@@ -180,11 +184,9 @@ public class SoldierController : MonoBehaviour
 
     private void MoveToAvoidObstacle(GameObject enemy)
     {
-        Debug.Log("Move to Avoid obstacle");
         Vector3 dir = (transform.position - enemy.transform.position).normalized;
         float offsetX = 1.5f;
         float offsetY = 1.5f;
-        Debug.Log("Dir:" + dir);
         //Top left
         if(dir.x < 0 && dir.y > 0)
         {
@@ -214,7 +216,6 @@ public class SoldierController : MonoBehaviour
 
     IEnumerator MoveOnRange(GameObject enemy)
     {
-        Debug.Log("Move on Range");
         bool inRange = false;
         agent.SetDestination(enemy.transform.position);
         yield return new WaitForFixedUpdate();
@@ -236,13 +237,24 @@ public class SoldierController : MonoBehaviour
             {
                 currentEnergy++;
             }
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(energyRestore);
+        }
+    }
+
+    IEnumerator RestoreHealth()
+    {
+        while (true)
+        {
+            if(currenthealth < healthPoints)
+            {
+                currenthealth++;
+            }
+            yield return new WaitForSeconds(healthRestore);
         }
     }
 
     IEnumerator AttackContinous(GameObject enemy)
     {
-        Debug.Log("Attack Continous");
         while (canAttack)
         {
             animator.SetTrigger("Attack");
@@ -270,7 +282,6 @@ public class SoldierController : MonoBehaviour
 
     IEnumerator MoveToAttack(GameObject enemy, float offsetX, float offsetY)
     {
-        Debug.Log("Move to attack");
         int tries = 4;
         while(!CheckVision(enemy) && tries > 0)
         {
@@ -290,5 +301,35 @@ public class SoldierController : MonoBehaviour
             FaceEnemy(enemy);
             StartCoroutine(AttackContinous(enemy));
         }
+    }
+
+    private void UpdateHealthBar()
+    {
+        // Scale sprite
+        remainingHealth.GetComponent<SpriteRenderer>().size = new Vector2((float)(currenthealth * 1) / healthPoints, 0.25f);
+        // Adjust position
+        float offset = (0.5f / healthPoints);        
+        Vector3 newPosition = new Vector3(healthbar.transform.position.x - offset * (healthPoints - currenthealth), remainingHealth.transform.position.y, remainingHealth.transform.position.z);
+        remainingHealth.transform.position = newPosition;
+    }
+
+    public void ShowArea()
+    {
+        habilityArea.SetActive(true);
+    }
+
+    public void HideArea()
+    {
+        habilityArea.SetActive(false);
+    }
+
+    public bool CanIUseHability(int cost)
+    {
+        return cost < currentEnergy;
+    }
+
+    public void Usehability(int cost)
+    {
+        currentEnergy -= cost;
     }
 }
