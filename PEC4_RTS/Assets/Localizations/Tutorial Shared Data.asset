@@ -14,7 +14,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Tutorial
   m_TableCollectionNameGuidString: 6dc4d0bf5884ff8458005367ec6dfb98
-  m_Entries: []
+  m_Entries:
+  - m_Id: 6538506627403776
+    m_Key: Intro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854401392332800
+    m_Key: Intro2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854586625380352
+    m_Key: Intro3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854652987658240
+    m_Key: UnitDetails1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854766313558016
+    m_Key: UnitDetails2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854907959398400
+    m_Key: UnitDetails3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855255470067712
+    m_Key: UnitDetails4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855428627714048
+    m_Key: UnitDetails5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855532440932352
+    m_Key: UnitDetails6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855627752296448
+    m_Key: UnitDetails7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855712741478400
+    m_Key: Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855875354644480
+    m_Key: Move2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855959878258688
+    m_Key: Move3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856235733438464
+    m_Key: Move4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856288619417600
+    m_Key: Attack1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856336220573696
+    m_Key: Attack2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856380264960000
+    m_Key: Attack3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856495390216192
+    m_Key: Attack4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856632179052544
+    m_Key: Attack5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856764345765888
+    m_Key: Habilities1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856894797008896
+    m_Key: Habilities2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6859977824358400
+    m_Key: Habilities3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6860080580612096
+    m_Key: Habilities4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

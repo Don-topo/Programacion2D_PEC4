@@ -17,6 +17,106 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 6dc4d0bf5884ff8458005367ec6dfb98, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 6538506627403776
+    m_Localized: Bienvenido comandante. Aqui recibira la instruccion basica de gestion
+      de unidades.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854401392332800
+    m_Localized: Puede mover la camara acercando el raton a los bordes de la pantalla
+      o con las teclas W A S D.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854586625380352
+    m_Localized: Para seleccionar una unidad haga clic sobre ella
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854652987658240
+    m_Localized: Con la unidad seleccionada podra ver los atributos que tiene
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854766313558016
+    m_Localized: Los puntos de salud es la cantidad de dano que la unidad puede soportar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854907959398400
+    m_Localized: La energia se sirve para utilizar habilidades. Se regenera con el
+      tiempo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855255470067712
+    m_Localized: El escudo indica la cantidad de armadura que tiene la unidad. A
+      mas armadura menor dano recibira.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855428627714048
+    m_Localized: "Las balas indican el da\xF1o de ataque de la unidad."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855532440932352
+    m_Localized: La gota indica la velocidad de movimiento de la unidad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855627752296448
+    m_Localized: Las flechas indican la velocidad de ataque de la unidad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855712741478400
+    m_Localized: Para mover una unidad debe estar seleccionada y pulsar el boton
+      derecho del raton sobre el lugar al que quiere moverse.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855875354644480
+    m_Localized: Mueva el soldado hasta la primera bandera.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855959878258688
+    m_Localized: Excelente!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856235733438464
+    m_Localized: Vaya a la zona de entrenamiento.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856288619417600
+    m_Localized: Execelente!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856336220573696
+    m_Localized: Pasemos al combate.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856380264960000
+    m_Localized: Para atacar al enemigo debe tener la unidad seleccionada y pulsar
+      el boton derecho del raton.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856495390216192
+    m_Localized: Una vez el enemigo haya muerto o cuando mueva la unidad esta dejara
+      de atacar.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856632179052544
+    m_Localized: Buen trabajo. Vaya a la parte final.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856764345765888
+    m_Localized: Cada unidad dispone de diferentes habilidades.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856894797008896
+    m_Localized: Puede pasar el raton por encima de la habilidad para ver que hace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6859977824358400
+    m_Localized: 'Buen trabajo comandante. Con esto concluye el entrenamiento basico. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6860080580612096
+    m_Localized: Recuerde que de la gestion de las unidades depende el exito de la
+      mision.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

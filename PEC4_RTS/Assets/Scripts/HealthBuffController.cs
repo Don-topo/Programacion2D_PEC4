@@ -44,12 +44,15 @@ public class HealthBuffController : MonoBehaviour
     }
     public void UseHability()
     {
-        GetAliedUnits();
-        currentCooldown = cooldown;
-        soldierGameobject.GetComponent<SoldierController>().currentEnergy -= cost;
-        slider.value = currentCooldown;
-        StartCoroutine(Cooldown());
-        StartCoroutine(Buff());
+        if (GameManager.Instance.CanIMove())
+        {
+            GetAliedUnits();
+            currentCooldown = cooldown;
+            soldierGameobject.GetComponent<SoldierController>().currentEnergy -= cost;
+            slider.value = currentCooldown;
+            StartCoroutine(Cooldown());
+            StartCoroutine(Buff());
+        }        
     }
 
     private void GetAliedUnits()

@@ -8,5 +8,4 @@ using UnityEngine.Localization;
 public class Sentence
 {
     public LocalizedString text;
-    public Sprite character;
 }

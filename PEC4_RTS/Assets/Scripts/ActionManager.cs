@@ -34,120 +34,128 @@ public class ActionManager : MonoBehaviour
     }
 
     void Update()
-    {        
-        if (Input.GetMouseButtonDown(0))
+    {
+        if (GameManager.Instance.CanIMove())
         {
-            if (CheckIfUIPressed())
+            if (Input.GetMouseButtonDown(0))
             {
-                // Habilies stuff
-                uiClicked = true;
-            }
-            else
-            {
-                if (usingHability)
+                if (CheckIfUIPressed())
                 {
-                    habilityController.ConfirmHability();
+                    // Habilies stuff
+                    uiClicked = true;
                 }
                 else
                 {
-                    uiClicked = false;
-                    startMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    line.positionCount = 4;
-                    line.SetPosition(0, new Vector2(startMousePosition.x, startMousePosition.y));
-                    line.SetPosition(1, new Vector2(startMousePosition.x, startMousePosition.y));
-                    line.SetPosition(2, new Vector2(startMousePosition.x, startMousePosition.y));
-                    line.SetPosition(3, new Vector2(startMousePosition.x, startMousePosition.y));
-                    DiselectUnits();
-                    DiselectEnemy();
-                    var test = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    test.z = 0;
-
-                    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
-
-                    if (hit.collider != null)
+                    if (usingHability)
                     {
-                        if (hit.collider.gameObject.CompareTag("Soldier"))
-                        {
-                            selectedUnits.Add(hit.collider.gameObject);
-                            SelectUnits();
-                        }
+                        habilityController.ConfirmHability();
                     }
                     else
                     {
+                        uiClicked = false;
+                        startMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        line.positionCount = 4;
+                        line.SetPosition(0, new Vector2(startMousePosition.x, startMousePosition.y));
+                        line.SetPosition(1, new Vector2(startMousePosition.x, startMousePosition.y));
+                        line.SetPosition(2, new Vector2(startMousePosition.x, startMousePosition.y));
+                        line.SetPosition(3, new Vector2(startMousePosition.x, startMousePosition.y));
                         DiselectUnits();
                         DiselectEnemy();
-                    }
-                }                
-            }            
-        }
+                        var test = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        test.z = 0;
 
-        if (Input.GetMouseButtonDown(1) && !CheckIfUIPressed())
-        {
-            if(selectedUnits.Capacity > 0)
-            {
-                if (usingHability)
-                {
-                    usingHability = false;
-                    habilityController.CancelHability();
-                }
-                else
-                {
-                    RaycastHit2D hitEnemy = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
-                    if (hitEnemy.collider != null)
-                    {
-                        if (hitEnemy.collider.CompareTag("Enemy"))
+                        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
+
+                        if (hit.collider != null)
                         {
-                            DiselectEnemy();
-                            enemySelected = hitEnemy.collider.gameObject;
-                            hitEnemy.collider.GetComponent<EnemyController>().SelectEnemy();
-                            AttackUnits();
+                            if (hit.collider.gameObject.CompareTag("Soldier"))
+                            {
+                                selectedUnits.Add(hit.collider.gameObject);
+                                SelectUnits();
+                            }
                         }
+                        else
+                        {
+                            DiselectUnits();
+                            DiselectEnemy();
+                        }
+                    }
+                }
+            }
+
+            if (Input.GetMouseButtonDown(1) && !CheckIfUIPressed())
+            {
+                if (selectedUnits.Capacity > 0)
+                {
+                    if (usingHability)
+                    {
+                        usingHability = false;
+                        habilityController.CancelHability();
                     }
                     else
                     {
-                        Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                        newPosition.z = 0f;
-                        MoveUnits(newPosition);
-                        DiselectEnemy();
+                        RaycastHit2D hitEnemy = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
+                        if (hitEnemy.collider != null)
+                        {
+                            if (hitEnemy.collider.CompareTag("Enemy"))
+                            {
+                                DiselectEnemy();
+                                enemySelected = hitEnemy.collider.gameObject;
+                                hitEnemy.collider.GetComponent<EnemyController>().SelectEnemy();
+                                AttackUnits();
+                            }
+                        }
+                        else
+                        {
+                            Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                            newPosition.z = 0f;
+                            MoveUnits(newPosition);
+                            DiselectEnemy();
+                        }
                     }
-                }                           
+                }
             }
-        }
 
-        if (Input.GetMouseButton(0))
-        {
-            if (!CheckIfUIPressed() && !uiClicked)
+            if (Input.GetMouseButton(0))
             {
-                currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                line.SetPosition(0, new Vector2(startMousePosition.x, startMousePosition.y));
-                line.SetPosition(1, new Vector2(startMousePosition.x, currentMousePosition.y));
-                line.SetPosition(2, new Vector2(currentMousePosition.x, currentMousePosition.y));
-                line.SetPosition(3, new Vector2(currentMousePosition.x, startMousePosition.y));
-            }            
-        }
-
-        if(Input.GetMouseButtonUp(0))
-        {
-            line.positionCount = 0;
-            Vector3 leftUpperCorner = new Vector3(startMousePosition.x, startMousePosition.y, 0f);
-            Vector3 rightUpperCorner = new Vector3(currentMousePosition.x, startMousePosition.y, 0f);
-            Vector3 leftBottomCorner = new Vector3(startMousePosition.x, currentMousePosition.y, 0f);
-            Vector3 rightBottomCorner = new Vector3(currentMousePosition.x, currentMousePosition.y, 0f);
-            var size = new Vector3(
-                Mathf.Abs(startMousePosition.x - currentMousePosition.x),
-                Mathf.Abs(startMousePosition.y - currentMousePosition.y),
-                0f
-            );
-            RaycastHit2D[] hits = Physics2D.BoxCastAll((leftUpperCorner + rightUpperCorner + leftBottomCorner + rightBottomCorner) / 4, size, 0, new Vector2(0,0));            
-            foreach(RaycastHit2D raycastHit2D in hits)
-            {
-                if (raycastHit2D.collider.CompareTag("Soldier")) {
-                    selectedUnits.Add(raycastHit2D.collider.gameObject);
-                }                
+                if (!CheckIfUIPressed() && !uiClicked)
+                {
+                    currentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    line.SetPosition(0, new Vector2(startMousePosition.x, startMousePosition.y));
+                    line.SetPosition(1, new Vector2(startMousePosition.x, currentMousePosition.y));
+                    line.SetPosition(2, new Vector2(currentMousePosition.x, currentMousePosition.y));
+                    line.SetPosition(3, new Vector2(currentMousePosition.x, startMousePosition.y));
+                }
             }
-            SelectUnits();
-        }
-        UpdateUI();
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                line.positionCount = 0;
+                Vector3 leftUpperCorner = new Vector3(startMousePosition.x, startMousePosition.y, 0f);
+                Vector3 rightUpperCorner = new Vector3(currentMousePosition.x, startMousePosition.y, 0f);
+                Vector3 leftBottomCorner = new Vector3(startMousePosition.x, currentMousePosition.y, 0f);
+                Vector3 rightBottomCorner = new Vector3(currentMousePosition.x, currentMousePosition.y, 0f);
+                var size = new Vector3(
+                    Mathf.Abs(startMousePosition.x - currentMousePosition.x),
+                    Mathf.Abs(startMousePosition.y - currentMousePosition.y),
+                    0f
+                );
+                RaycastHit2D[] hits = Physics2D.BoxCastAll((leftUpperCorner + rightUpperCorner + leftBottomCorner + rightBottomCorner) / 4, size, 0, new Vector2(0, 0));
+                foreach (RaycastHit2D raycastHit2D in hits)
+                {
+                    if (raycastHit2D.collider.CompareTag("Soldier"))
+                    {
+                        selectedUnits.Add(raycastHit2D.collider.gameObject);
+                    }
+                }
+                if (!CheckIfUIPressed())
+                {
+                    SelectUnits();
+                }
+
+            }
+            UpdateUI();
+        }        
     }
 
     void FixedUpdate()
@@ -198,12 +206,15 @@ public class ActionManager : MonoBehaviour
         
     }
 
-
     private void SelectUnits()
     {
-        foreach(GameObject gameObject in selectedUnits)
+        if(selectedUnits.ToArray().Length > 0)
         {
-            SetUnitDetails(gameObject.GetComponent<SoldierController>());
+            SetUnitDetails(selectedUnits[0].GetComponent<SoldierController>());
+            selectedUnits[0].GetComponent<SoldierController>().SelectSoldierSound();
+        }
+        foreach(GameObject gameObject in selectedUnits)
+        {            
             gameObject.GetComponent<SoldierController>().SelectSoldier();
         }
     }
@@ -220,14 +231,29 @@ public class ActionManager : MonoBehaviour
 
     private void MoveUnits(Vector3 position)
     {
-        if(selectedUnits.ToArray().Length > 0)
+        float offset1 = 1f;
+        Vector3[] offsets = {
+                new Vector3(position.x - offset1, position.y + offset1, position.z),
+                new Vector3(position.x + offset1, position.y + offset1, position.z),
+                new Vector3(position.x - offset1, position.y - offset1, position.z),
+                new Vector3(position.x + offset1, position.y - offset1, position.z),
+            };
+        if (selectedUnits.ToArray().Length > 0)
         {
             Instantiate(targetPositionPrefab, position, Quaternion.identity);
+            selectedUnits[0].GetComponent<SoldierController>().MovementSound();
         }        
         foreach(GameObject gameObject in selectedUnits)
         {
-            gameObject.GetComponent<SoldierController>().Move(position);
-        }
+            if(selectedUnits.ToArray().Length == 1)
+            {
+                gameObject.GetComponent<SoldierController>().Move(position);
+            }
+            else
+            {
+                gameObject.GetComponent<SoldierController>().Move(offsets[selectedUnits.IndexOf(gameObject)]);
+            }            
+        }        
     }
 
     private void AttackUnits()

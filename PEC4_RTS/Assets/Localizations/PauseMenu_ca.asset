@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: PauseMenu_ca
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ca
+  m_SharedData: {fileID: 11400000, guid: 366e0eabe9a4196419400496550a262a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18191067860992
+    m_Localized: Joc en pausa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18272399609856
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18348312317952
+    m_Localized: Sortir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18670787186688
+    m_Localized: Segur que vols sortir?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18886617681920
+    m_Localized: Si
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18917886218240
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

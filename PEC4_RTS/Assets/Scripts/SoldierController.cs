@@ -21,6 +21,10 @@ public class SoldierController : MonoBehaviour
     public Sprite unitImage;
     public string unitName = "Stg. Hammer";
     public AudioClip[] selectUnitClips;
+    public AudioClip[] moveUnitClips;
+    public AudioClip[] attackUnitClips;
+    public AudioClip attackClip;
+    public AudioClip deathClip;
     public GameObject healthbar;
     public GameObject remainingHealth;
     public GameObject habilityArea;
@@ -30,6 +34,7 @@ public class SoldierController : MonoBehaviour
     private Vector3 lastPosition;
     private bool canAttack = false;
     private AudioSource audioSource;
+    private IEnumerator attackCoroutine = null;
 
     // Start is called before the first frame update
     void Start()
@@ -48,31 +53,39 @@ public class SoldierController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.updateRotation = false;
-        if(lastPosition.x < transform.position.x && !isFacingRight)
+        if (GameManager.Instance.CanIMove())
         {
-            Flip();
-        } else if(lastPosition.x > transform.position.x && isFacingRight)
-        {
-            Flip();
-        }
-        lastPosition = transform.position;
-        if (agent.remainingDistance == 0f)
-        {
-            animator.SetBool("Moving", false);
-        }
-        UpdateHealthBar();
+            agent.updateRotation = false;
+            if (lastPosition.x < transform.position.x && !isFacingRight)
+            {
+                Flip();
+            }
+            else if (lastPosition.x > transform.position.x && isFacingRight)
+            {
+                Flip();
+            }
+            lastPosition = transform.position;
+            if (agent.remainingDistance == 0f)
+            {
+                animator.SetBool("Moving", false);
+            }
+            UpdateHealthBar();
+        }        
     }
 
     public void SelectSoldier()
     {
         selectedGameObject.SetActive(true);
-        healthbar.SetActive(true);
+        healthbar.SetActive(true);           
+    }
+
+    public void SelectSoldierSound()
+    {
         if (!audioSource.isPlaying)
         {
             audioSource.clip = selectUnitClips[Random.Range(0, selectUnitClips.Length)];
             audioSource.Play();
-        }        
+        }
     }
 
     public void DiselectSoldier()
@@ -86,10 +99,24 @@ public class SoldierController : MonoBehaviour
         animator.SetBool("Moving", true);
         agent.SetDestination(newPosition);
         agent.updateRotation = false;
+        if (attackCoroutine != null)
+        {
+            StopCoroutine(attackCoroutine);
+            attackCoroutine = null;
+        }
     }
 
     public void Attack(GameObject enemy)
     {
+        if(attackCoroutine != null)
+        {
+            StopCoroutine(attackCoroutine);
+        }        
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = attackUnitClips[Random.Range(0, attackUnitClips.Length)];
+            audioSource.Play();
+        }
         // Check if I am in range
         if (CheckAttackRange(enemy))
         {
@@ -115,7 +142,8 @@ public class SoldierController : MonoBehaviour
         {
             FaceEnemy(enemy);
             canAttack = true;
-            StartCoroutine(AttackContinous(enemy));
+            attackCoroutine = AttackContinous(enemy);
+            StartCoroutine(attackCoroutine);
         }
         else
         {
@@ -154,6 +182,15 @@ public class SoldierController : MonoBehaviour
         agent.SetDestination(transform.position);
         animator.SetBool("Moving", false);
         agent.updateRotation = false;
+    }
+
+    public void MovementSound()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = moveUnitClips[Random.Range(0, moveUnitClips.Length)];
+            audioSource.Play();
+        }
     }
 
     private bool CheckAttackRange(GameObject enemy)
@@ -258,11 +295,14 @@ public class SoldierController : MonoBehaviour
         while (canAttack)
         {
             animator.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.2f);
+            audioSource.clip = attackClip;
+            audioSource.Play();
             enemy.GetComponent<EnemyController>().GetHit(attackDamage);
             yield return new WaitForSeconds(attackSpeed);
-            if(enemy.GetComponent<EnemyController>().healthPoints <= 0)
+            if(enemy.GetComponent<EnemyController>().currentHealth <= 0)
             {
-                canAttack = false;
+                canAttack = false;                
             }
         }        
     }
@@ -299,7 +339,8 @@ public class SoldierController : MonoBehaviour
         {            
             canAttack = true;
             FaceEnemy(enemy);
-            StartCoroutine(AttackContinous(enemy));
+            attackCoroutine = AttackContinous(enemy);
+            StartCoroutine(attackCoroutine);
         }
     }
 

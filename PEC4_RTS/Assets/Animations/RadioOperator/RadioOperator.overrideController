@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RadioOperator
+  m_Controller: {fileID: 9100000, guid: 3a41ac30de8365d40a731fc2bbbb618c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 05af8f42cb1de204594b9fd9a8922a09, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 48bcc728feded884baa3d24652c3b82e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fa4f9a317675546469948d3c858392c3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d39dfb25db1e72a47b94a36388a90a55, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2c81d94130a390b41a98e0fe0528f160, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2e0b8f795939251489c50a1f8d3e9020, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ee5bc0323ee9b3e4589b2dc2089d1284, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b8463ca234b79254ebc1608607d19235, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: decc658c69ff0874bac9f53582e3c205, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: afec4abfd69987e428e5a97058ff0942, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 840160730ce3fd040ae9fd8df1c9ad8e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e80a340599affb446b42bd7c5f3458ed, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b767daa601925ae4f9c5fa3a6ef61568, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 65213e6cf9d5b0e44ae8af765a9a3427, type: 2}

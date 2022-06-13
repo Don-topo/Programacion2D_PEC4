@@ -48,12 +48,15 @@ public class HabilityController : MonoBehaviour
 
     public void UseHability()
     {
-        button.interactable = false;
-        areaEffect.SetActive(true);        
-        ActionManager.usingHability = true;
-        ActionManager.habilityController = this;
-        soldierGameobject = ActionManager.GetSelectedUnit();
-        soldierGameobject.GetComponent<SoldierController>().ShowArea();
+        if (GameManager.Instance.CanIMove())
+        {
+            button.interactable = false;
+            areaEffect.SetActive(true);
+            ActionManager.usingHability = true;
+            ActionManager.habilityController = this;
+            soldierGameobject = ActionManager.GetSelectedUnit();
+            soldierGameobject.GetComponent<SoldierController>().ShowArea();
+        }        
     }
 
     public void ConfirmHability()

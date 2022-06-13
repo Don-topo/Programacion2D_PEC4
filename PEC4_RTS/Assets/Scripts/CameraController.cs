@@ -20,34 +20,34 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Mouse ScrollWheel") > 0f && cam.orthographicSize > minOrthographicSize)
+        if (GameManager.Instance.CanIMove())
         {
-            cam.orthographicSize--;
-        } else if (Input.GetAxis("Mouse ScrollWheel") < 0f && cam.orthographicSize < maxOrthographicSize)
-        {
-            cam.orthographicSize++;
-        }
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f && cam.orthographicSize > minOrthographicSize)
+            {
+                cam.orthographicSize--;
+            }
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0f && cam.orthographicSize < maxOrthographicSize)
+            {
+                cam.orthographicSize++;
+            }
 
-        if (Input.mousePosition.y >= Screen.height * screenOffset)
-        {
-            transform.Translate(scrollSpeed * Time.deltaTime * Vector3.up, Space.World);
+            if (Input.mousePosition.y >= Screen.height * screenOffset)
+            {
+                transform.Translate(scrollSpeed * Time.deltaTime * Vector3.up, Space.World);
+            }
+            else if (Input.mousePosition.y <= maxScreenMargin * screenOffset)
+            {
+                transform.Translate(scrollSpeed * Time.deltaTime * Vector3.down, Space.World);
+            }
+            if (Input.mousePosition.x >= Screen.width * screenOffset)
+            {
+                transform.Translate(scrollSpeed * Time.deltaTime * Vector3.right, Space.World);
+            }
+            else if (Input.mousePosition.x <= maxScreenMargin * screenOffset)
+            {
+                transform.Translate(scrollSpeed * Time.deltaTime * Vector3.left, Space.World);
+            }
         }
-        else if(Input.mousePosition.y <= maxScreenMargin * screenOffset)
-        {
-            transform.Translate(scrollSpeed * Time.deltaTime * Vector3.down, Space.World);
-        }
-        if(Input.mousePosition.x >= Screen.width * screenOffset)
-        {
-            transform.Translate(scrollSpeed * Time.deltaTime * Vector3.right, Space.World);
-        }
-        else if(Input.mousePosition.x <= maxScreenMargin * screenOffset)
-        {
-            transform.Translate(scrollSpeed * Time.deltaTime * Vector3.left, Space.World);
-        }
-    }
-
-    private bool CanResize()
-    {
-        return ((cam.orthographicSize - 1) > 1f) && ((cam.orthographicSize + 1) < 7f);
+        
     }
 }

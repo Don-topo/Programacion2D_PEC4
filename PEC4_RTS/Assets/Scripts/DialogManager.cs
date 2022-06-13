@@ -11,7 +11,6 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI dialogText;
     public Animator animator;
     public CanvasGroup canvasGroup;
-    public Image dialogImageCharacter;
 
     private Queue<Sentence> sentences;
     private static DialogManager dialogManagerInstance;
@@ -42,7 +41,7 @@ public class DialogManager : MonoBehaviour
         animator.SetBool("Active", true);
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
-        //GameManager.Instance.StopPlayer();
+        GameManager.Instance.StopUnits();
         DisplaySentence();
     }
 
@@ -50,15 +49,15 @@ public class DialogManager : MonoBehaviour
     {
         if(sentences.Count == 0)
         {
-            EndDialogue();
-            //GameManager.Instance.StartPlayer();
+            EndDialogue();            
+            GameManager.Instance.StartUnits();
             return;
         }
 
         Sentence sentence = sentences.Dequeue();
-        dialogImageCharacter.sprite = sentence.character;
         StopAllCoroutines();
-        StartCoroutine(SetTextSlowly(sentence.text.GetLocalizedStringAsync().Result));
+        string text = sentence.text.GetLocalizedString().ToString();
+        StartCoroutine(SetTextSlowly(text));
     }
 
     void EndDialogue()
