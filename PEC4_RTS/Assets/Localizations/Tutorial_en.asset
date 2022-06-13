@@ -17,6 +17,104 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 6dc4d0bf5884ff8458005367ec6dfb98, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 6538506627403776
+    m_Localized: Welcome commander. Here you will receive the basic unit management
+      instruction.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854401392332800
+    m_Localized: You can move the camera by moving the mouse near the edges of the
+      screen or with the W A S D keys.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854586625380352
+    m_Localized: To select a unit click on it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854652987658240
+    m_Localized: With the unit selected you can see the attributes it has
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854766313558016
+    m_Localized: Health points is the amount of damage the unit can take
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854907959398400
+    m_Localized: Energy is used to use abilities. It regenerates over time.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855255470067712
+    m_Localized: The shield indicates the amount of armor the unit has. The more
+      armor the less damage you will receive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855428627714048
+    m_Localized: Bullets indicate the unit's attack damage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855532440932352
+    m_Localized: The drop indicates the movement speed of the unit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855627752296448
+    m_Localized: The arrows indicate the attack speed of the unit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855712741478400
+    m_Localized: To move a unit you must select it and press the right mouse button
+      on the place you want to move to.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855875354644480
+    m_Localized: Move the soldier up to the first flag.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855959878258688
+    m_Localized: Excellent!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856288619417600
+    m_Localized: Excellent!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856235733438464
+    m_Localized: Go to the training area.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856336220573696
+    m_Localized: Let's go to combat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856380264960000
+    m_Localized: To attack the enemy you must have the selected unit and press the
+      right mouse button.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856495390216192
+    m_Localized: Once the enemy has died or when the unit moves, it will stop attacking.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856632179052544
+    m_Localized: Good work. Go to the end part.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856764345765888
+    m_Localized: Each unit has different abilities.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856894797008896
+    m_Localized: You can mouse over the skill to see what it does.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6859977824358400
+    m_Localized: Good job commander. This concludes the basic training.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6860080580612096
+    m_Localized: Remember that the success of the mission depends on the management
+      of the units.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

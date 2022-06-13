@@ -10,29 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Mission1 Shared Data
+  m_Name: Mission2 Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Mission1
-  m_TableCollectionNameGuidString: f26918a144cc3c34d9fda5ffadbfb91b
+  m_TableCollectionName: Mission2
+  m_TableCollectionNameGuidString: 8e3bc2fd9a0008a43a83a5bdbd3b28af
   m_Entries:
-  - m_Id: 39622652678144
-    m_Key: Welcome
+  - m_Id: 1452728864768
+    m_Key: Welcome1
     m_Metadata:
       m_Items: []
-  - m_Id: 39717217456128
+  - m_Id: 1824784601088
     m_Key: Welcome2
     m_Metadata:
       m_Items: []
-  - m_Id: 39817280966656
+  - m_Id: 1882707939328
     m_Key: Welcome3
     m_Metadata:
       m_Items: []
-  - m_Id: 39967877451776
+  - m_Id: 1943835725824
     m_Key: Welcome4
     m_Metadata:
       m_Items: []
-  - m_Id: 40010965536768
+  - m_Id: 2066888216576
     m_Key: Welcome5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2126589939712
+    m_Key: Welcome6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2208840241152
+    m_Key: Welcome7
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -44,4 +52,4 @@ MonoBehaviour:
     00000000:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1655136864091
+        m_CustomEpoch: 1655146176926

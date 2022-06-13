@@ -17,6 +17,27 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: f26918a144cc3c34d9fda5ffadbfb91b, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 39622652678144
+    m_Localized: "Benvingut a la seva primera missi\xF3 comandant."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39717217456128
+    m_Localized: "En aquesta missi\xF3 disposar\xE0 de dues unitats, gestiona-les
+      correctament."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39817280966656
+    m_Localized: "La seva missi\xF3 \xE9s senzilla, cal patrullar aquesta zona."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39967877451776
+    m_Localized: "No esperem gaire resist\xE8ncia."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40010965536768
+    m_Localized: "Nom\xE9s centreu-vos a completar el recorregut."
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

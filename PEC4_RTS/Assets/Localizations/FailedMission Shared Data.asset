@@ -10,29 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Mission1 Shared Data
+  m_Name: FailedMission Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Mission1
-  m_TableCollectionNameGuidString: f26918a144cc3c34d9fda5ffadbfb91b
+  m_TableCollectionName: FailedMission
+  m_TableCollectionNameGuidString: adc13727576eaa249b7280aa1ef6a8aa
   m_Entries:
-  - m_Id: 39622652678144
-    m_Key: Welcome
+  - m_Id: 34227834880
+    m_Key: MissionFailed
     m_Metadata:
       m_Items: []
-  - m_Id: 39717217456128
-    m_Key: Welcome2
+  - m_Id: 62434529280
+    m_Key: Retry
     m_Metadata:
       m_Items: []
-  - m_Id: 39817280966656
-    m_Key: Welcome3
-    m_Metadata:
-      m_Items: []
-  - m_Id: 39967877451776
-    m_Key: Welcome4
-    m_Metadata:
-      m_Items: []
-  - m_Id: 40010965536768
-    m_Key: Welcome5
+  - m_Id: 101206675456
+    m_Key: Exit
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -44,4 +36,4 @@ MonoBehaviour:
     00000000:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1655136864091
+        m_CustomEpoch: 1655144761703

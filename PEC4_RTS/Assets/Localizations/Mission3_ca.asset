@@ -10,32 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Mission1_en
+  m_Name: Mission3_ca
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
-  m_SharedData: {fileID: 11400000, guid: f26918a144cc3c34d9fda5ffadbfb91b, type: 2}
+    m_Code: ca
+  m_SharedData: {fileID: 11400000, guid: f3ad27fdb906e8342a31ae8af9ad752c, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 39622652678144
-    m_Localized: Welcome to your first mission commander.
+  - m_Id: 2963827544064
+    m_Localized: Hola de nou comandant.
     m_Metadata:
       m_Items: []
-  - m_Id: 39717217456128
-    m_Localized: In this mission you will have two units, manage them correctly.
+  - m_Id: 3023009173504
+    m_Localized: "Els seus \xE8xits anteriors li han valgut tenir una unitat m\xE9s.
+      No ens defraudi."
     m_Metadata:
       m_Items: []
-  - m_Id: 39817280966656
-    m_Localized: Your mission is simple, you have to patrol this area.
+  - m_Id: 3133336145920
+    m_Localized: "Les coses s'han posat serioses. Tenim un grup de civils que est\xE0
+      sent atacat."
     m_Metadata:
       m_Items: []
-  - m_Id: 39967877451776
-    m_Localized: We don't expect much resistance.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 40010965536768
-    m_Localized: Just focus on completing the course.
+  - m_Id: 3213111808000
+    m_Localized: No podran resistir gaire temps. Afanya't comandant i salvi els civils
+      abans que morin.
     m_Metadata:
       m_Items: []
   references:

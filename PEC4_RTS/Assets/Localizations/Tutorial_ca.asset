@@ -17,6 +17,108 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 6dc4d0bf5884ff8458005367ec6dfb98, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 6538506627403776
+    m_Localized: "Benvingut comandant. Aqui rebr\xE0 la instruccion basica de gestion
+      d'unitats."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854401392332800
+    m_Localized: "Podeu moure la c\xE0mera apropant el ratol\xED a les vores de la
+      pantalla o amb les tecles W A S D."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854586625380352
+    m_Localized: Per seleccionar una unitat feu clic sobre ella
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854652987658240
+    m_Localized: Amb la unitat seleccionada podreu veure els atributs que teniu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854766313558016
+    m_Localized: "Els punts de salut \xE9s la quantitat de dany que la unitat pot
+      suportar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6854907959398400
+    m_Localized: L'energia se serveix per fer servir habilitats. Es regenera amb
+      el temps.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855255470067712
+    m_Localized: "L'escut indica la quantitat d'armadura que t\xE9 la unitat. A m\xE9s
+      armadura menor dany rebr\xE0."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855532440932352
+    m_Localized: La gota indica la velocitat de moviment de la unitat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855428627714048
+    m_Localized: Les bales indiquen el dany datac de la unitat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855627752296448
+    m_Localized: Les fletxes indiquen la velocitat datac de la unitat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855712741478400
+    m_Localized: "Per moure una unitat ha d'estar seleccionada i pr\xE9mer el bot\xF3
+      dret del ratol\xED sobre el lloc on es vol moure."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855875354644480
+    m_Localized: Moveu el soldat fins a la primera bandera.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856288619417600
+    m_Localized: "Excel\xB7lent!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6855959878258688
+    m_Localized: "Excel\xB7lent!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856235733438464
+    m_Localized: Aneu a la zona d'entrenament.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856336220573696
+    m_Localized: Passem al combat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856380264960000
+    m_Localized: "Per atacar l'enemic ha de tenir la unitat seleccionada i pr\xE9mer
+      el bot\xF3 dret del ratol\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856495390216192
+    m_Localized: "Un cop l'enemic hagi mort o quan mogui la unitat aquesta deix\xE9s
+      d'atacar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856632179052544
+    m_Localized: Bona feina. Aneu a la part final.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856764345765888
+    m_Localized: Cada unitat disposa de diferents habilitats.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6856894797008896
+    m_Localized: "Podeu passar el ratol\xED per sobre de l'habilitat per veure qu\xE8
+      fa"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6859977824358400
+    m_Localized: "Bona feina comandant. Amb aix\xF2 conclou l'entrenament b\xE0sic."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6860080580612096
+    m_Localized: "Recordeu que de la gesti\xF3 de les unitats dep\xE8n l'\xE8xit
+      de la missi\xF3."
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

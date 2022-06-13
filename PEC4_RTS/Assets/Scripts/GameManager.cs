@@ -88,7 +88,6 @@ public class GameManager : MonoBehaviour
         pauseCanvas.gameObject.SetActive(true);
     }
 
-
     public void ExitGame()
     {
         Time.timeScale = 1f;
@@ -108,7 +107,6 @@ public class GameManager : MonoBehaviour
     {
         return canIPlay;
     }
-
 
     public void CompleteTutorial()
     {
@@ -141,6 +139,5 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(level);
     }
-
 
 }
