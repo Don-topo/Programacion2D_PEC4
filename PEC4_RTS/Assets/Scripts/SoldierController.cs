@@ -60,11 +60,11 @@ public class SoldierController : MonoBehaviour
         if (GameManager.Instance.CanIMove() && currenthealth > 0)
         {
             agent.updateRotation = false;
-            if (lastPosition.x < transform.position.x && !isFacingRight)
+            if (lastPosition.x < transform.position.x && !isFacingRight && Vector3.Distance(lastPosition, transform.position) > 0.01f)
             {
                 Flip();
             }
-            else if (lastPosition.x > transform.position.x && isFacingRight)
+            else if (lastPosition.x > transform.position.x && isFacingRight && Vector3.Distance(lastPosition, transform.position) > 0.01f)
             {
                 Flip();
             }
@@ -176,7 +176,7 @@ public class SoldierController : MonoBehaviour
         else
         {
             // There is a obstacle between us. We need to move
-            MoveToAvoidObstacle(enemy);
+           // MoveToAvoidObstacle(enemy);
         }
     }
 
@@ -249,6 +249,7 @@ public class SoldierController : MonoBehaviour
 
     private void MoveToAvoidObstacle(GameObject enemy)
     {
+        Debug.Log("Obstacle");
         Vector3 dir = (transform.position - enemy.transform.position).normalized;
         float offsetX = 1.5f;
         float offsetY = 1.5f;
@@ -322,6 +323,7 @@ public class SoldierController : MonoBehaviour
     {
         while (canAttack)
         {
+            FaceEnemy(enemy);
             animator.SetTrigger("Attack");
             yield return new WaitForSeconds(0.2f);
             audioSource.clip = attackClip;

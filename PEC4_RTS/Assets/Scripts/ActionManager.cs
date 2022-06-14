@@ -235,7 +235,7 @@ public class ActionManager : MonoBehaviour
 
     private void MoveUnits(Vector3 position)
     {
-        float offset1 = 1f;
+        float offset1 = 1.5f;
         Vector3[] offsets = {
                 new Vector3(position.x - offset1, position.y + offset1, position.z),
                 new Vector3(position.x + offset1, position.y + offset1, position.z),
