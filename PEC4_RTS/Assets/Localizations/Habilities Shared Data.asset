@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Habilities Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Habilities
+  m_TableCollectionNameGuidString: cd18465eef5dd1d4087f554a931899de
+  m_Entries:
+  - m_Id: 4599530606592
+    m_Key: Grenade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4614844010496
+    m_Key: HealGrenade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4637505835008
+    m_Key: AttackBuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4662881374208
+    m_Key: PoweredAttack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4726496382976
+    m_Key: AttackSpeedBuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4758108852224
+    m_Key: Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4777931132928
+    m_Key: ArmorBuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4804057452544
+    m_Key: EnergyBuff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822810185728
+    m_Key: HealthBuff
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1655241033113

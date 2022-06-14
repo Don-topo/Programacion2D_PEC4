@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Habilities_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: cd18465eef5dd1d4087f554a931899de, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 4599530606592
+    m_Localized: 'Lanza una granada en la ubicacion indicada haciendo 60 de dano
+      a todos los enemigos dentro del area.
+
+      Coste: 30
+
+      Cooldown: 40'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4726496382976
+    m_Localized: 'Proporciona a todos los aliados cercanos un aumento de 1.5 en la
+      velocidad de ataque durante 6 segundos.
+
+      Coste: 40
+
+      Cooldown: 60'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4758108852224
+    m_Localized: 'Cura a la unidad seleccionada 250 de salud.
+
+      Coste: 60
+
+      Cooldown:
+      30'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4614844010496
+    m_Localized: 'Lanza una granada en la ubicacion indicada curando  150 de salud
+      a todos los aliados dentro del area.
+
+      Coste: 60
+
+      Cooldown: 60'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4777931132928
+    m_Localized: 'Proporciona a todos los aliados cercanos un aumento de 155 en la
+      armadura durante 10 segundos.
+
+      Coste: 30
+
+      Cooldown: 30'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4804057452544
+    m_Localized: 'Proporciona a todos los aliados cercanos un aumento de 0.75 en
+      la regeneracion de energia durante 20 segundos.
+
+      Coste: 60
+
+      Cooldown:
+      40'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4822810185728
+    m_Localized: 'Proporciona a todos los aliados cercanos un aumento de 3 en la
+      regeneracion de salud  durante 30 segundos.
+
+      Coste: 60
+
+      Cooldown:
+      40'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4637505835008
+    m_Localized: 'Proporciona a todos los aliados cercanos un aumento de 20 el ataque
+      durante 20 segundos.
+
+      Coste: 60
+
+      Cooldown: 60'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4662881374208
+    m_Localized: 'Lanza un ataque potente a una sola unidad que inflinje 80 de dano.
+
+      Coste:
+      40
+
+      Cooldown: 30'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

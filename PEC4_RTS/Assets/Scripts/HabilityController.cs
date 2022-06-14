@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 public class HabilityController : MonoBehaviour
@@ -33,6 +35,8 @@ public class HabilityController : MonoBehaviour
     public GameObject healGrenadeExplotionPrefab;
     public AudioClip poweredAttack;
     public AudioClip buff;
+    public GameObject tooltip;
+    public LocalizedString tooltipText;
 
     private GameObject soldierGameobject;
     private int currentCooldown = 0;
@@ -434,6 +438,17 @@ public class HabilityController : MonoBehaviour
             slider.value = currentCooldown;
         }
         button.interactable = true;
+    }
+
+    public void ShowTooltip()
+    {
+        tooltip.SetActive(true);
+        tooltip.transform.Find("info").gameObject.GetComponent<TextMeshProUGUI>().text = tooltipText.GetLocalizedString();
+    }
+
+    public void HideTooltip()
+    {
+        tooltip.SetActive(false);
     }
 
 }
