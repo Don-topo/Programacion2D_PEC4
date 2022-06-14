@@ -150,9 +150,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -208369099
+  m_SortingLayer: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 8611698091860389924, guid: 8b1608573ebddac4288fda023d880241, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 1758144037492662364}
   - component: {fileID: 1758144037492662363}
   - component: {fileID: 1758144037492662360}
+  - component: {fileID: 1645685934}
   m_Layer: 9
   m_Name: Wasp
   m_TagString: Enemy
@@ -318,6 +319,33 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1645685934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758144037492662367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc226a02f8acc114e8b57e16df7def5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedGameObject: {fileID: 1758144036015311471}
+  healthbar: {fileID: 1758144037951934588}
+  remainingHealth: {fileID: 1758144037222212221}
+  healthPoints: 10
+  currentHealth: 10
+  attackRange: 5
+  attackDamage: 3
+  attackSpeed: 3
+  movementSpeed: 3
+  armor: 3
+  attackClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  agent: {fileID: 0}
+  iAmPassive: 1
+  attackDetection: 2.7
 --- !u!1 &1758144037951934588
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,9 +415,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -208369099
+  m_SortingLayer: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -5450842029512184834, guid: 8b1608573ebddac4288fda023d880241, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

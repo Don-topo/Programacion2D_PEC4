@@ -48,7 +48,8 @@ public class ActionManager : MonoBehaviour
                 {
                     if (usingHability)
                     {
-                        habilityController.ConfirmHability();
+                        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, LayerMask.NameToLayer("Units"));
+                        habilityController.ConfirmHability(hit);
                     }
                     else
                     {
@@ -145,7 +146,10 @@ public class ActionManager : MonoBehaviour
                 {
                     if (raycastHit2D.collider.CompareTag("Soldier"))
                     {
-                        selectedUnits.Add(raycastHit2D.collider.gameObject);
+                        if(raycastHit2D.collider.GetComponent<SoldierController>().currenthealth > 0)
+                        {
+                            selectedUnits.Add(raycastHit2D.collider.gameObject);
+                        }                        
                     }
                 }
                 if (!CheckIfUIPressed())

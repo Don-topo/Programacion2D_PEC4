@@ -18,19 +18,24 @@ public class EnemyController : MonoBehaviour
     public float movementSpeed = 3f;
     public int armor = 3;
     public AudioClip attackClip;
-    public AudioClip deathClip;
     public NavMeshAgent agent;
+    public bool iAmPassive;
+    public bool flyingUnit;
+    public float attackDetection;
 
 
     private Animator animator;
     private RaycastHit2D[] soldiersInRange;
     private GameObject soldierTarget;
+    private bool iAmAttacking = false;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
@@ -38,12 +43,33 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(soldierTarget != null)
+        if(!iAmPassive && currentHealth > 0)
         {
-            CheckSoldiersInRange();
-            CheckSoldiersVision();
-            
-        }        
+            if (soldierTarget == null)
+            {
+                CheckSoldiersInRange();
+                CheckSoldiersVision();
+                MoveToPosition();
+            }
+            else
+            {
+                if (Vector2.Distance(transform.position, soldierTarget.transform.position) <= attackRange)
+                {
+                    if (!iAmAttacking)
+                    {
+                        StopMoving();
+                        iAmAttacking = true;
+                        StartCoroutine(Attack());
+                    }
+                }
+                else
+                {
+                    iAmAttacking = false;
+                    StopAllCoroutines();
+                    MoveToPosition();
+                }
+            }
+        }            
     }
 
     public void SelectEnemy()
@@ -66,15 +92,17 @@ public class EnemyController : MonoBehaviour
         {
             Death();
         }
-        else
-        {
-            // TODO hit with blood particles
-        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, attackDetection);
     }
 
     private void Death()
     {
         animator.SetTrigger("Death");
+        StopAllCoroutines();
         DiselectEnemy();
         GetComponent<BoxCollider2D>().enabled = false;
         agent.enabled = false;
@@ -93,7 +121,7 @@ public class EnemyController : MonoBehaviour
 
     private void CheckSoldiersInRange()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRange, Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackDetection, Vector2.zero);
         soldiersInRange = hits.Where(c => c.collider.gameObject.CompareTag("Soldier")).ToArray();
     }
 
@@ -103,28 +131,60 @@ public class EnemyController : MonoBehaviour
         {
             Vector2 enemyPosition = new Vector2(transform.position.x, transform.position.y);
             Vector2 soldierPosition = new Vector2(soldierInRange.transform.position.x, soldierInRange.transform.position.y);
-            bool hit = false;
             GetComponent<BoxCollider2D>().enabled = false;
             RaycastHit2D enemyHit = Physics2D.Linecast(enemyPosition, soldierPosition);
             if (enemyHit.collider != null)
             {
                 if (enemyHit.collider.CompareTag("Soldier"))
                 {
-                    soldierTarget = enemyHit.collider.gameObject;
+                    if(enemyHit.collider.GetComponent<SoldierController>().currenthealth > 0)
+                    {
+                        soldierTarget = enemyHit.collider.gameObject;
+                        GetComponent<BoxCollider2D>().enabled = true;
+                        break;
+                    }                    
                 }
             }
             GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 
-    private void Attack()
+    private void MoveToPosition()
     {
-
+        if (!flyingUnit)
+        {
+            animator.SetBool("Moving", true);
+        }        
+        if(soldierTarget != null)
+        {
+            agent.SetDestination(soldierTarget.transform.position);
+        }        
     }
 
-    IEnumerator AttackContinously()
+    private void StopMoving()
     {
-        yield return new WaitForSeconds(attackSpeed);
+        agent.SetDestination(transform.position);
+        if (!flyingUnit)
+        {
+            animator.SetBool("Moving", false);
+        }        
+    }
 
+    IEnumerator Attack()
+    {
+        while (iAmAttacking)
+        {
+            // Perform attack
+            animator.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.3f);
+            audioSource.Play();
+            soldierTarget.GetComponent<SoldierController>().GetHit(attackDamage);
+            yield return new WaitForSeconds(attackSpeed);
+            if(soldierTarget.GetComponent<SoldierController>().currenthealth <= 0)
+            {
+                soldierTarget = null;
+                iAmAttacking = false;
+            }
+        }        
     }
 }

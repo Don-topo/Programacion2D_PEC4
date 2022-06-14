@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class SoldierController : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class SoldierController : MonoBehaviour
     public GameObject healthbar;
     public GameObject remainingHealth;
     public GameObject habilityArea;
+    public Button[] habilitiesButtons;
+    public ParticleSystem buffParticles;
+    public ParticleSystem healParticles;
 
     private Animator animator;
     private bool isFacingRight = true;
@@ -53,7 +57,7 @@ public class SoldierController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.CanIMove())
+        if (GameManager.Instance.CanIMove() && currenthealth > 0)
         {
             agent.updateRotation = false;
             if (lastPosition.x < transform.position.x && !isFacingRight)
@@ -83,8 +87,15 @@ public class SoldierController : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
-            audioSource.clip = selectUnitClips[Random.Range(0, selectUnitClips.Length)];
-            audioSource.Play();
+            if(currenthealth > 0)
+            {
+                audioSource.clip = selectUnitClips[Random.Range(0, selectUnitClips.Length)];
+                audioSource.Play();
+            }            
+        }
+        foreach(Button hability in habilitiesButtons)
+        {
+            hability.gameObject.SetActive(true);
         }
     }
 
@@ -92,46 +103,62 @@ public class SoldierController : MonoBehaviour
     {
         selectedGameObject.SetActive(false);
         healthbar.SetActive(false);
+        foreach (Button hability in habilitiesButtons)
+        {
+            hability.gameObject.SetActive(false);
+        }
     }
 
     public void Move(Vector3 newPosition)
     {
-        animator.SetBool("Moving", true);
-        agent.SetDestination(newPosition);
-        agent.updateRotation = false;
-        if (attackCoroutine != null)
+        if(currenthealth > 0)
         {
-            StopCoroutine(attackCoroutine);
-            attackCoroutine = null;
-        }
+            animator.SetBool("Moving", true);
+            agent.SetDestination(newPosition);
+            agent.updateRotation = false;
+            if (attackCoroutine != null)
+            {
+                StopCoroutine(attackCoroutine);
+                attackCoroutine = null;
+            }
+        }        
     }
 
     public void Attack(GameObject enemy)
     {
-        if(attackCoroutine != null)
-        {
-            StopCoroutine(attackCoroutine);
-        }        
-        if (!audioSource.isPlaying)
-        {
-            audioSource.clip = attackUnitClips[Random.Range(0, attackUnitClips.Length)];
-            audioSource.Play();
-        }
-        // Check if I am in range
-        if (CheckAttackRange(enemy))
-        {
-            PerformAttack(enemy);
-        }
-        else
-        {
-            // Out of range, need to move
-            StartCoroutine(MoveOnRange(enemy));
-        }        
+        if(currenthealth > 0){
+            if (attackCoroutine != null)
+            {
+                StopCoroutine(attackCoroutine);
+            }
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = attackUnitClips[Random.Range(0, attackUnitClips.Length)];
+                audioSource.Play();
+            }
+            // Check if I am in range
+            if (CheckAttackRange(enemy))
+            {
+                PerformAttack(enemy);
+            }
+            else
+            {
+                // Out of range, need to move
+                StartCoroutine(MoveOnRange(enemy));
+            }
+        }                
     }
 
     public void Death()
     {
         animator.SetTrigger("Death");
+        agent.enabled = false;
+        GetComponent<SpriteRenderer>().sortingLayerName = "Floor";
+        audioSource.clip = deathClip;
+        StopAllCoroutines();
+        currentEnergy = 0;
+        audioSource.Play();
+        UpdateHealthBar();
     }
 
     private void PerformAttack(GameObject enemy)
@@ -186,7 +213,7 @@ public class SoldierController : MonoBehaviour
 
     public void MovementSound()
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && currenthealth > 0)
         {
             audioSource.clip = moveUnitClips[Random.Range(0, moveUnitClips.Length)];
             audioSource.Play();
@@ -373,4 +400,39 @@ public class SoldierController : MonoBehaviour
     {
         currentEnergy -= cost;
     }
+
+    public void GetHealed(int amount)
+    {
+        if(currenthealth > 0)
+        {
+            healParticles.Play();
+            if (currenthealth + amount > healthPoints)
+            {
+                currenthealth = healthPoints;
+            }
+            else
+            {
+                currenthealth += amount;
+            }
+        }        
+    }
+
+    public void GetBuffed()
+    {
+        buffParticles.Play();
+    }
+
+    public void GetHit(int damage)
+    {
+        if(currenthealth - (damage - armor) <= 0)
+        {
+            currenthealth = 0;
+            Death();
+        }
+        else
+        {
+            currenthealth -= (damage - armor);
+        }
+    }
+
 }
