@@ -217,12 +217,12 @@ public class HabilityController : MonoBehaviour
                 {
                     currentCooldown = cooldown;
                     slider.value = currentCooldown;
-                    StartCoroutine(Cooldown());
-                    ActionManager.usingHability = false;
-                    ActionManager.habilityController = null;
-                    soldierController.HideArea();
+                    StartCoroutine(Cooldown());                                        
                     soldierController.Usehability(cost);
-                }                
+                }
+                soldierController.HideArea();
+                ActionManager.usingHability = false;
+                ActionManager.habilityController = null;
             }            
         }        
     }
@@ -260,31 +260,45 @@ public class HabilityController : MonoBehaviour
     private bool HealUnit(RaycastHit2D hitUnit)
     {
         areaEffect.SetActive(false);
-        if (hitUnit.collider.CompareTag("Soldier"))
-        {
-            hitUnit.collider.GetComponent<SoldierController>().GetHealed(healAmount);            
-            return true;
-        }
-        else
+        if(hitUnit.collider == null)
         {
             return false;
         }
+        else
+        {
+            if (hitUnit.collider.CompareTag("Soldier"))
+            {
+                hitUnit.collider.GetComponent<SoldierController>().GetHealed(healAmount);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }        
     }
 
     private bool DamageUnit(RaycastHit2D hitUnit)
     {
         areaEffect.SetActive(false);
-        if (hitUnit.collider.CompareTag("Enemy"))
-        {
-            GetComponent<AudioSource>().clip = poweredAttack;
-            GetComponent<AudioSource>().Play();
-            hitUnit.collider.GetComponent<EnemyController>().GetHit(damage);
-            return true;
-        }
-        else
+        if(hitUnit.collider == null)
         {
             return false;
         }
+        else
+        {
+            if (hitUnit.collider.CompareTag("Enemy"))
+            {
+                GetComponent<AudioSource>().clip = poweredAttack;
+                GetComponent<AudioSource>().Play();
+                hitUnit.collider.GetComponent<EnemyController>().GetHit(damage);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }        
     }
 
     private void GetAliedUnits()

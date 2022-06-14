@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
     private GameObject soldierTarget;
     private bool iAmAttacking = false;
     private AudioSource audioSource;
+    private bool isFacingRight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class EnemyController : MonoBehaviour
     {
         if(!iAmPassive && currentHealth > 0)
         {
+            FaceEnemy();
             if (soldierTarget == null)
             {
                 CheckSoldiersInRange();
@@ -167,6 +169,29 @@ public class EnemyController : MonoBehaviour
         if (!flyingUnit)
         {
             animator.SetBool("Moving", false);
+        }        
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+    private void FaceEnemy()
+    {
+        if(soldierTarget != null)
+        {
+            if (soldierTarget.transform.position.x >= transform.position.x && !isFacingRight)
+            {
+                Flip();
+            }
+            else if (soldierTarget.transform.position.x < transform.position.x && isFacingRight)
+            {
+                Flip();
+            }
         }        
     }
 

@@ -159,6 +159,7 @@ public class SoldierController : MonoBehaviour
         currentEnergy = 0;
         audioSource.Play();
         UpdateHealthBar();
+        GameManager.Instance.SoldierDeath();
     }
 
     private void PerformAttack(GameObject enemy)

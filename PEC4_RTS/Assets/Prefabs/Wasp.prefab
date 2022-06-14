@@ -334,17 +334,17 @@ MonoBehaviour:
   selectedGameObject: {fileID: 1758144036015311471}
   healthbar: {fileID: 1758144037951934588}
   remainingHealth: {fileID: 1758144037222212221}
-  healthPoints: 10
-  currentHealth: 10
+  healthPoints: 50
+  currentHealth: 50
   attackRange: 5
   attackDamage: 3
   attackSpeed: 3
   movementSpeed: 3
   armor: 3
   attackClip: {fileID: 0}
-  deathClip: {fileID: 0}
   agent: {fileID: 0}
   iAmPassive: 1
+  flyingUnit: 0
   attackDetection: 2.7
 --- !u!1 &1758144037951934588
 GameObject:

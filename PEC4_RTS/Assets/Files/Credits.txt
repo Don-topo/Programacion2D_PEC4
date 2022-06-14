@@ -1,6 +1,10 @@
 {
 	"collaborators": [
 	{
+		"name": "Ruben Garrido",
+		"aportation": "Autor"
+	},
+	{
 		"name": "Matt Walkden",
 		"aportation": "Free Robot Warfare Pack"
 	},
@@ -27,6 +31,38 @@
 	{
 		"name": "Ansimuz",
 		"aportation": "Warped City 2"
+	},
+	{
+		"name": "Alex Brodie",
+		"aportation": "Scott"
+	},
+	{
+		"name": "Ian Lampert",
+		"aportation": "Matt"
+	},
+	{
+		"name": "Meghan Christian",
+		"aportation": "Wanda"
+	},
+	{
+		"name": "Karen Cenon",
+		"aportation": "Brenda"
+	},
+	{
+		"name": "Related Games",
+		"aportation": "FREE Music Loop Bundle"
+	},
+	{
+		"name": "Related Games",
+		"aportation": "Gravity Pixel Font"
+	},
+	{
+		"name": "Related Games",
+		"aportation": "Assets: Free UI KIT #1"
+	},
+	{
+		"name": "Related Games",
+		"aportation": "120 Realistic avatars for RPG"
 	}
 	]
 }

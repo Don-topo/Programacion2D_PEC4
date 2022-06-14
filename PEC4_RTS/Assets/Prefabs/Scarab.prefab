@@ -396,17 +396,17 @@ MonoBehaviour:
   selectedGameObject: {fileID: 701719826}
   healthbar: {fileID: 516984270}
   remainingHealth: {fileID: 1174083364}
-  healthPoints: 10
-  currentHealth: 10
+  healthPoints: 200
+  currentHealth: 200
   attackRange: 1
-  attackDamage: 1000
-  attackSpeed: 3
+  attackDamage: 30
+  attackSpeed: 2
   movementSpeed: 3
   armor: 3
   attackClip: {fileID: 0}
-  deathClip: {fileID: 0}
   agent: {fileID: 1867436622}
   iAmPassive: 0
+  flyingUnit: 0
   attackDetection: 3
 --- !u!195 &1867436622
 NavMeshAgent:

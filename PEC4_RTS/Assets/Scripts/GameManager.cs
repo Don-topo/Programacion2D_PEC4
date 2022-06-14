@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public Canvas pauseCanvas;
     public Canvas confirmCanvas;
-    public Animator sceneTransitionAnimator;
+    public Canvas failedMissionCanvas;
+    public Animator sceneTransitionAnimator;    
 
 
     private GameInfo gameInfo;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private static GameManager gmInstance;
     private float transitionTime = 1f;
     private bool canIPlay = true;
+    private int remainingSoldiers;
 
 
     public static GameManager Instance { get { return gmInstance; } }
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
         {
             gmInstance = this;
         }
-
+        remainingSoldiers = GameObject.FindGameObjectsWithTag("Soldier").Length;
     }
 
     // Update is called once per frame
@@ -131,6 +133,16 @@ public class GameManager : MonoBehaviour
     public void RestartMission()
     {       
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+    }
+
+    public void SoldierDeath()
+    {
+        remainingSoldiers--;
+        if(remainingSoldiers <= 0)
+        {
+            StopUnits();
+            failedMissionCanvas.gameObject.SetActive(true);
+        }
     }
 
     IEnumerator LoadLevel(string level)

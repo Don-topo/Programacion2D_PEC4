@@ -6,6 +6,8 @@ public class EndLevel : MonoBehaviour
 {
 
     public Canvas winCanvas;
+    public int xLarge;
+    public int yLarge;
 
     private bool trigger = false;
 
@@ -21,12 +23,12 @@ public class EndLevel : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawCube(transform.position, new Vector3(20, 1, 1));
+        Gizmos.DrawCube(transform.position, new Vector3(xLarge, yLarge, 1));
     }
 
     private void CheckIfPlayerEnter()
     {
-        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new Vector2(20, 1), 0, Vector2.zero);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, new Vector2(xLarge, yLarge), 0, Vector2.zero);
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider.CompareTag("Soldier"))

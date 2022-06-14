@@ -35,15 +35,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5436307683889152
-    m_Localized: "Misi\xF3 1"
+    m_Localized: Misio 1
     m_Metadata:
       m_Items: []
   - m_Id: 5436380429897728
-    m_Localized: "Misi\xF3 2"
+    m_Localized: Misio 2
     m_Metadata:
       m_Items: []
   - m_Id: 5436473325342720
-    m_Localized: "Misi\xF3 3"
+    m_Localized: Misio 3
     m_Metadata:
       m_Items: []
   - m_Id: 5740398943358976
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5740569546674176
-    m_Localized: "M\xFAsica de fons"
+    m_Localized: Musica de fons
     m_Metadata:
       m_Items: []
   - m_Id: 5740702875209728
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5790458435555328
-    m_Localized: "Cr\xE9dits"
+    m_Localized: Credits
     m_Metadata:
       m_Items: []
   references:
