@@ -44,6 +44,7 @@ public class HabilityController : MonoBehaviour
     private int[] originalIntValues;
     private float[] originalFloatValues;
     private Vector3 cursorPosition;
+    private IEnumerator tooltipRoutine;
 
     // Start is called before the first frame update
     void Start()
@@ -442,13 +443,20 @@ public class HabilityController : MonoBehaviour
 
     public void ShowTooltip()
     {
-        tooltip.SetActive(true);
-        tooltip.transform.Find("info").gameObject.GetComponent<TextMeshProUGUI>().text = tooltipText.GetLocalizedString();
+        tooltipRoutine = ShowTooltipLater();
+        StartCoroutine(tooltipRoutine);
     }
 
     public void HideTooltip()
     {
         tooltip.SetActive(false);
+        StopCoroutine(tooltipRoutine);
     }
 
+    IEnumerator ShowTooltipLater()
+    {
+        yield return new WaitForSeconds(1.5f);
+        tooltip.SetActive(true);
+        tooltip.transform.Find("info").gameObject.GetComponent<TextMeshProUGUI>().text = tooltipText.GetLocalizedString();
+    }
 }
