@@ -22,7 +22,7 @@
     - [3.1. Cursor](#31-cursor)
     - [3.2. Control de Audio](#32-control-de-audio)
     - [3.3. Localización del juego](#33-localización-del-juego)
-    - [3.4. Cuadro de dialogos](#34-cuadro-de-dialogos)
+    - [3.4. Cuadro de diálogos](#34-cuadro-de-diálogos)
     - [3.5. Cámara](#35-cámara)
     - [3.6. Seleccionar unidades](#36-seleccionar-unidades)
         - [3.6.1. Seleccionar una unidad](#361-seleccionar-una-unidad)
@@ -30,8 +30,8 @@
     - [3.7. Barra de salud superior](#37-barra-de-salud-superior)
     - [3.8. La interfaz con los detalles de la unidad](#38-la-interfaz-con-los-detalles-de-la-unidad)
     - [3.9. Habilidades de los soldados](#39-habilidades-de-los-soldados)
-        - [3.9.1 Habilidades de selección de area](#391-habilidades-de-selección-de-area)
-        - [3.9.2. Habilidades de area](#392-habilidades-de-area)
+        - [3.9.1 Habilidades de selección de área](#391-habilidades-de-selección-de-área)
+        - [3.9.2. Habilidades de área](#392-habilidades-de-área)
         - [3.9.3. Habilidades de selección](#393-habilidades-de-selección)
     - [3.10. Cooldown de las habilidades](#310-cooldown-de-las-habilidades)
     - [3.11. El minimapa (sin completar)](#311-el-minimapa-sin-completar)
@@ -43,15 +43,15 @@
 
 
 # 1. Historia
-El juego se situa en un futuro no muy lejano. Donde la humanidad esta siendo atacada por máquinas con forma de insectos. Para combatirlas se han formado diferentes escuadrones que luchasn contra ellas realizando guerra de guerrillas. Nuestra misión es asumir el rol de comandante de uno de estos escuadrones y luchar contra estos enemigos en diferentes escenarios.
+El juego se sitúa en un futuro no muy lejano. Donde la humanidad está siendo atacada por máquinas con forma de insectos. Para combatirlas se han formado diferentes escuadrones que luchan contra ellas realizando guerra de guerrillas. Nuestra misión es asumir el rol de comandante de uno de estos escuadrones y luchar contra estos enemigos en diferentes escenarios.
 
 ## 1.1. Personajes aliados
 
 ### 1.1.1. Squad Leader
 Unidad equilibrada, dispone de una buena cantidad de salud y armadura y dispone tanto de habilidades de ataque como de apoyo. Puede estar en el frente y en la retaguardia.
 Habilidades:
-- Granada de Fragmentación: Lanza una granada que hace una cantidad de daño a los enemigos en un area concreta.
-- Buff velocidad de ataque: En un area determinada hace que los aliados ataquen más deprisa durante un corto período de tiempo.
+- Granada de Fragmentación: Lanza una granada que hace una cantidad de daño a los enemigos en un área concreta.
+- Buff velocidad de ataque: En un área determinada hace que los aliados ataquen más deprisa durante un corto período de tiempo.
 - Cura: Cura una cantidad moderada de salud a una unidad aliada.
 
 ![squadLeader](images/squadLeader.png)
@@ -63,7 +63,7 @@ Habilidades:
 > Imagen de detalle de la unidad
 
 ### 1.1.2. Radio Operator
-El operador de radio es una unidad de apoyo. Dispone de una cantidad de salud y armadura moderada, por lo que puede recibir una cierta cantidad de ataques. no obstante esta pensada para que este a media distancia apoyando a el resto de unidades.
+El operador de radio es una unidad de apoyo. Dispone de una cantidad de salud y armadura moderada, por lo que puede recibir una cierta cantidad de ataques. No obstante está pensada para que este a media distancia apoyando al resto de unidades.
 Habilidades:
 - Granada de sanación: Lanza una granada que sana a todos los aliados dentro del alcance.
 - Buff armadura: Aumenta la armadura de todos los aliados cercanos durante un breve período de tiempo.
@@ -78,7 +78,7 @@ Habilidades:
 
 ### 1.1.3. Anti Tank
 
-Unidad con mucha salud y armadura, ideal para estar en el frente. Presenta un ataque potente y lento. Sus habilidades estan enfocadas a la ofensiva.
+Unidad con mucha salud y armadura, ideal para estar en el frente. Presenta un ataque potente y lento. Sus habilidades están enfocadas a la ofensiva.
 Habilidades:
 - Disparo potente: Ataque que hace mucho daño a una unidad enemiga.
 - Buff de ataque: Aumenta el ataque de los aliados durante un breve período de tiempo.
@@ -94,7 +94,7 @@ Habilidades:
 ### 1.1.4. Sniper
 
 La francotiradora tiene el ataque más elevado de todos y a la vez el más lento. Como buena francotiradora que es su rango de ataque es superior que el resto de unidades.
-Tiene poca salud y armadura por lo que no debería de estar en primera línea de fuego. Es una unidad de apoyo.
+Tiene poca salud y armadura, por lo que no debería de estar en primera línea de fuego. Es una unidad de apoyo.
 Habilidades:
 - Buff energía: Aumenta la regeneración de energía de todos los aliados cercanos.
 - Buff salud: Aumenta la regeneración de salud de todos los aliados cercanos.
@@ -110,12 +110,12 @@ Habilidades:
 ## 1.2. Enemigos
 
 ### 1.2.1. Wasp
-Es el enemigo más básico de todos. Su función simplemente es hacer bulto. No es hostil hacia los soldados por lo que solo es una esponja de balas. Tiene poca salud.
+Es el enemigo más básico de todos. Su función simplemente es hacer bulto. No es hostil hacia los soldados, por lo que solo es una esponja de balas. Tiene poca salud.
 
 ![Wasp](images/Wasp.png)
 
 ### 1.2.2. Hornet
-Este es un enemigo volador que ataca a distancia. A diferencia del enemigo anterior este si que es hostil hacia los soldados. Presenta un ataque bajo, una velocidad de ataque rápida y una salud media.
+Este es un enemigo volador que ataca a distancia. A diferencia del enemigo anterior, este sí que es hostil hacia los soldados. Presenta un ataque bajo, una velocidad de ataque rápida y una salud media.
 
 ![Hornet](images/Hornet.png)
 
@@ -124,15 +124,17 @@ Unidad enemiga a melee. Esta unidad hace un daño moderado a corto alcance y dis
 
 ![Scarab](images/Scarab.png)
 
+[Video con la demo](videos/FinalPEC.mp4)
+
 # 2. Pantallas
 
 ## 2.1. Pantalla de inicio
-La pantalla de inicio muestra el logo de la empresa. En mi caso como es una práctica de la UOC he decidido utilizar su logo. La escena ejecuta una corutina donde hace una transición inicial de un segundo. Después espera tres segundos para dar tiempo al jugador de ver el logo. Finalmente se hace la animación de salida de un segundo.
+La pantalla de inicio muestra el logo de la empresa. En mi caso como es una práctica de la UOC he decidido utilizar su logo. La escena ejecuta una corutina donde hace una transición inicial de un segundo. Después espera tres segundos para dar tiempo al jugador de ver el logo. Finalmente, se hace la animación de salida de un segundo.
 
 ![Intro](images/intro.png)
 
 ## 2.2. Menu principal
-El menú principal entra con una transición en negro y muestra una ciudad con parallax de fondo, el título del juego y las opciones que tiene disponible el jugador en el menú principal. Estas opciones son: Jugar la camapaña, ir a opciones, ver los créditos y salir de la aplicación.
+El menú principal entra con una transición en negro y muestra una ciudad con parallax de fondo, el título del juego y las opciones que tiene disponible el jugador en el menú principal. Estas opciones son: Jugar la campaña, ir a opciones, ver los créditos y salir de la aplicación.
 
 ![MainMenu](images/MainMenu.png)
 
@@ -147,8 +149,8 @@ El primer nivel implementado es un pequeño escenario donde mediante diálogos s
 
 ## 2.4. Misión 1: Patrulla
 La primera misión consiste en realizar una patrulla por un punto determinado. Podríamos resumir esto en llegar del punto A al punto B. En este nivel ponemos a disposición del jugador dos unidades: El líder de escuadrón y la operadora de radio.
-A partir de este nivel el jugador si que va a poder perder la partida. En este caso el jugador pierde si todas las unidades mueren antes de completar el objetivo.
-En este mapa no es obligatorio matar a todos los enemigos y el jugador puede evitar algunos combates si asi lo desea.
+A partir de este nivel el jugador sí que va a poder perder la partida. En este caso el jugador pierde si todas las unidades mueren antes de completar el objetivo.
+En este mapa no es obligatorio matar a todos los enemigos y el jugador puede evitar algunos combates si así lo desea.
 
 ![Mission1](images/Mission1.png)
 
@@ -160,13 +162,13 @@ Aquí añadimos una nueva unidad al escuadrón, el anti tanque.
 
 ## 2.6. Misión 3: Rescate
 En la misión final el jugador deberá llegar lo más rápido posible a un punto para ayudar a un grupo de gente que eta siendo atacada.
-Para la misisón final subimos un poco más el nivel y ponemos al jugador una nueva condición de derrota, el tiempo. Dispone de 30 min para llegar al punto indicado o perderá la partida. Para ayudarle en la tarea le incorporaremos el último mienbro del escuadrón, la francotiradora.
+Para la misión final subimos un poco más el nivel y ponemos al jugador una nueva condición de derrota, el tiempo. Dispone de 30 min para llegar al punto indicado o perderá la partida. Para ayudarle en la tarea le incorporaremos el último miembro del escuadrón, la francotiradora.
 
 ![Mission3](images/Mission3.png)
 
 ## 2.7. Créditos
-La pantalla de créditos muestra el autor y todos los recursos y autores de los assets utilizados en la práctica. La pantalla esta dividida en dos partes: En la parte izquierda un fondo con parallax y en la derecha los créditos.
-He pensado que poner una pantalla en negro con los créditos es muy aburrido. Por eso he decidido partir la escena en dos. Por otro lado la información que se muestra en los créditos esta almacenada en un fichero y se carga en el momento de empezar la escena. 
+La pantalla de créditos muestra el autor y todos los recursos y autores de los assets utilizados en la práctica. La pantalla está dividida en dos partes: En la parte izquierda un fondo con parallax y en la derecha los créditos.
+He pensado que poner una pantalla en negro con los créditos es muy aburrido. Por eso he decidido partir la escena en dos. Por otro lado la información que se muestra en los créditos está almacenada en un fichero y se carga en el momento de empezar la escena. 
 La escena se puede terminar de dos formas. La primera es por la interacción del usuario, si este hace clic con el botón izquierdo del ratón o pulsa la tecla escape la escena termina y se pasa al menú principal.
 La segunda es cuando el texto de los créditos llega a la posición final. En ese momento la escena finaliza automáticamente.
 Tanto en la entrada como en la salida de la escena se reproduce una transición de un segundo para que no se vea que el cambio se hace abruptamente.
@@ -176,43 +178,42 @@ Tanto en la entrada como en la salida de la escena se reproduce una transición 
 # 3. Diseño
 
 ## 3.1. Cursor
-En los juegos de estrategia en general el cursor es uno de los elementos más importantes dado que sirve tanto para la jugabilidad como para indicar al usuario que puede o no puede hacer. En mi caso he decidido cambiar la imagen del cursor por una diferente, más minimalista. 
+En los juegos de estrategia en general, el cursor es uno de los elementos más importantes, dado que sirve tanto para la jugabilidad como para indicar al usuario que puede o no puede hacer. En mi caso he decidido cambiar la imagen del cursor por una diferente, más minimalista. 
 > Cursor.SetCursor(alyCursorTexture, Vector2.zero, CursorMode.ForceSoftware);
 
 ![cursor](images/cursor.png)
 
-
-Después he querido implementar el cambio de cursor dependiendo el tipo de unidad a la que esta apuntando para facilitar al usuario la diferenciación de las unidades en pantalla. Para hacer esto tengo un script donde en cada FixedUpdate hace un RayCast hacía la posición donde esta el cursor. Seguidamente es mirar si ha chocado con algo y si el tag es de un soldado o un enemigo.
+Después he querido implementar el cambio de cursor dependiendo el tipo de unidad a la que está apuntando para facilitar al usuario la diferenciación de las unidades en pantalla. Para hacer esto tengo un script donde en cada FixedUpdate hace un RayCast hacia la posición donde está el cursor. Seguidamente, es mirar si ha chocado con algo y si el tag es de un soldado o un enemigo.
 
 ![cursorAlly](images/cursorAly.png)
 ![cursorEnemy](images/cursorEnemy.png)
 
 ## 3.2. Control de Audio
-En esta práctica he querido implementar ajustes de audio en el menú de opciones del menú principal. He dividido el audio en dos partes: Volumen general (música de fondo) y efectos (disparos, voces..). Para regular esto lo mejor que he visto es el uso de Sliders. Así el jugador puede ver de una forma clara que cantidad tiene de cada uno y modificarlo de una forma sencilla.
+En esta práctica he querido implementar ajustes de audio en el menú de opciones del menú principal. He dividido el audio en dos partes: Volumen general (música de fondo) y efectos (disparos, voces...). Para regular esto lo mejor que he visto es el uso de Sliders. Así, el jugador puede ver de una forma clara que cantidad tiene de cada uno y modificarlo de una forma sencilla.
 He fijado los parámetros de 0 a 100.
 Hacer esto implica que los Audio Source deben ser modificados. He investigado como hacer esto y he encontrado los Audio Mixers. Con el Audio Mixer he creado dos grupos separados del Master, uno para background y otro para efectos.
 
 ![audioMixer](images/AudioMixer.png)
 
 Ahora solo hace falta en cada Audio Source especificar debajo del clip el Grupo del Mixer que queremos usar.
-Para guardar la configuración he tenido unos cuantos problemas. Como se puede apreciar los valores del Mixer son en decibelios, de .80 a 20. En cambio mi Slider esta en porcentage. Este valor se tiene que convertir a decibelios. Esto he tenido que buscarlo por internet y he dado con esta fórmula:
+Para guardar la configuración he tenido unos cuantos problemas. Como se puede apreciar los valores del Mixer son en decibelios, de .80 a 20. En cambio, mi Slider está en porcentage. Este valor se tiene que convertir a decibelios. Esto he tenido que buscarlo por internet y he dado con esta fórmula:
 > float db = 20 * Mathf.Log10(gameInfo.generalVolume / 100);
 
 Finalmente se ponen los valores en el Audio Mixer y ya tenemos el audio configurable.
 
 ## 3.3. Localización del juego
 
-En la PEC 3 ya implementé este sistema solo he reaprovechado el conocimiento y añadido las traducciones del juego nuevo. Esto se puede consultar en el Readme de la PEC3 .
+En la PEC 3 ya implementé este sistema solo he re aprovechado el conocimiento y añadido las traducciones del juego nuevo. Esto se puede consultar en el Readme de la PEC3.
 - <a href="https://gitlab.com/rgarridovaldepenas/pec-3" target="_blank">PEC 3</a>
 
-## 3.4. Cuadro de dialogos
-He reaprovechado el sistema de dialogos de la PEC anterior. En este caso le he dado un lavado de cara a la caja que se muestra para que tenga mas concordancia con el tipo de juego en el que estamos.
+## 3.4. Cuadro de diálogos
+He re aprovechado el sistema de diálogos de la PEC anterior. En este caso le he dado un lavado de cara a la caja que se muestra para que tenga más concordancia con el tipo de juego en el que estamos.
 
 ![Dialog](images/dialog.png)
 
 ## 3.5. Cámara
-Prácticamente todos los tipos de juegos de estratégia permiten al jugador mover la cámara acercando el ratón a los bordes. Para implementar esto tengo un script adjuntado a la cámara que se encarga de comprobar en cada Update si la posición del ratón esta en uno de los bordes de la pantalla. Si es así desplazará la cámara en el eje de esa dirección. Para simplificar esto no hago diagonales, solo me limito al eje vertical y horizontal.
-Eso en cuanto a movimiento de la cámara, lo que pasa es que también es habitual dejar al jugador la posibilidad de acercar o alejar la posición de la cámara. En mi caso he preferido jugar con el <b>Orthographic Size</b> de la cámara. Si detecto que la rueda del ratón va hacía arriba entonces disminuyo el valor para que parezca que la cámara se va hacercando. Hago lo opuesto para cuando gira la rueda hacia abajo. Para evitar cosas raras he puesto unos límites en ambas acciones para que no se pueda hacer demasiado zoom ni demasiado poco.
+Prácticamente todos los tipos de juegos de estrategia permiten al jugador mover la cámara acercando el ratón a los bordes. Para implementar esto tengo un script adjuntado a la cámara que se encarga de comprobar en cada Update si la posición del ratón esta en uno de los bordes de la pantalla. Si es así desplazará la cámara en el eje de esa dirección. Para simplificar esto no hago diagonales, solo me limito al eje vertical y horizontal.
+Eso en cuanto a movimiento de la cámara, lo que pasa es que también es habitual dejar al jugador la posibilidad de acercar o alejar la posición de la cámara. En mi caso he preferido jugar con el <b>Orthographic Size</b> de la cámara. Si detecto que la rueda del ratón va hacía arriba entonces disminuyo el valor para que parezca que la cámara se va acercando. Hago lo opuesto para cuando gira la rueda hacia abajo. Para evitar cosas raras he puesto unos límites en ambas acciones para que no se pueda hacer demasiado zoom ni demasiado poco.
 
 ![NoZoom](images/noZoom.png)
 >  Imagen con zoom normal
@@ -222,10 +223,10 @@ Eso en cuanto a movimiento de la cámara, lo que pasa es que también es habitua
 
 ## 3.6. Seleccionar unidades
 
-En todo buen juego de estratégia se tiene que poder seleccionar una o varias unidades alidas. Por lo que he querido implementar esta función. Normalmente para seleccionar unidades al jugador se le dan dos opciones: Hacer clic en una unidad para seleccionarla o arrastrar el ratón para seleccionar todas las unidades dentro del cuadro que se forma al mover el ratón. He implementado los dos métodos.
+En todo buen juego de estrategia se tiene que poder seleccionar una o varias unidades aliadas. Por lo que he querido implementar esta función. Normalmente para seleccionar unidades al jugador se le dan dos opciones: Hacer clic en una unidad para seleccionarla o arrastrar el ratón para seleccionar todas las unidades dentro del cuadro que se forma al mover el ratón. He implementado los dos métodos.
 
 ### 3.6.1. Seleccionar una unidad
-Para la selección de una unidad he cogido y en el Update miro cuando se aprieta el botón izquierdo del ratón SOLO CUANDO SE APRIETA. En ese momento cojo la posición del ratón y la proyecto en una posición del plando de la escena para hacer un ray cast en esa posición. Si toco una unidad aliada la selecciono. Si no no ocurre nada. Si se da el caso de que ya teníamos una unidad seleccionada vamos a deseleccionarla.
+Para la selección de una unidad he cogido y en el Update miro cuando se aprieta el botón izquierdo del ratón SOLO CUANDO SE APRIETA. En ese momento cojo la posición del ratón y la proyecto en una posición del plano de la escena para hacer un ray cast en esa posición. Si toco una unidad aliada la selecciono. Si no no ocurre nada. Si se da el caso de que ya teníamos una unidad seleccionada vamos a de seleccionarla.
 
 ![NoSelectedUnit](images/NoSelectedUnit.png)
 
@@ -239,7 +240,7 @@ Para informar al usuario de que tiene la unidad seleccionada muestro un pequeño
 ### 3.6.2. Seleccionar varias unidades
 Para seleccionar más unidades hay que hacer algo más complejo. En primer lugar tenemos que mirar cuando el jugador pulsa el botón izquierdo del ratón. En este punto me quedo con la posición. Seguidamente añado una condición en la que solo entro si el jugador tiene el botón izquierdo mantenido. En este punto lo que hago es coger la posición actual y la posición inicial para dibujar el cuadrado.
 En mi caso he querido mantener el mismo color que el de la selección de la unidad para que el jugador vea la relación.
-Pues bien con las dos posición que tengo, lo que tengo són los lados de cada extremo del cuadrado por lo que puedo calcular y dibujar todo el cuadrado:
+Pues bien con las dos posición que tengo, lo que tengo son los lados de cada extremo del cuadrado por lo que puedo calcular y dibujar todo el cuadrado:
 > Posición inicial (x1, x1)
 
 > Posición actual (x2, y2)
@@ -259,13 +260,13 @@ Finalmente en el momento en el que se levanta el dedo del botón izquierdo hago 
 >                    0f
 >                );
 
-Finalmente solo queda recorer todo el array y seleccionar todas las unidades que sean aliadas.
+Finalmente solo queda recorrer todo el array y seleccionar todas las unidades que sean aliadas.
 Para seleccionar una unidad en la clase controller tienen un método public que se encarga de mostrar la unidad seleccionada y la barra de salud superior.
 
 
 ## 3.7. Barra de salud superior
 
-He querido separar esto porque me ha dado algunos problemas esta implementación. Este elemento suele estar presente en todos los jeugos de estratégia y permite el jugador que pueda ver de una forma rápida la salud de todas las unidades que tiene seleccionadas sin tener que ir una por una.
+He querido separar esto porque me ha dado algunos problemas esta implementación. Este elemento suele estar presente en todos los jeugos de estrategia y permite el jugador que pueda ver de una forma rápida la salud de todas las unidades que tiene seleccionadas sin tener que ir una por una.
 Normalmente este elemento debería ir dentro de un Canvas pero he decidido no hacerlo por varios motivos. En primer lugar ya tengo un canvas muy complicado con la UI de la unidad (llegaremos a eso más adelante) y segundo no quería estar mirando que ese objeto se ponga en la posición del soldado.
 Mi solución ha sido poner un GameObject con dos hijos. El primero contiene la barra roja, y el segundo la verde. La barra roja se renderiza en una posición anterior a la verde de manera que va a quedar siempre detrás.
 Este enfoque tiene un problema, no puedo poner un slider y jugar con el tamaño mediante las funciones que proporciona este. En su lugar lo que hago es reducir el ancho del sprite. Esto genera un problema y es que reduce el Sprite por los dos lados de forma que no cumple con lo que queremos. Para arreglar esto tengo un offset que voy añadiendo dependiendo de la cantidad de salud que le falta a la unidad. De esta manera a medida que va perdiendo salud disminuyo el sprite y lo alineo a la derecha. Con esto doy la sensación de que la barra de salud "Esta bajando" y no tengo que gestionar esto desde un Canvas.
@@ -280,7 +281,7 @@ Este enfoque tiene un problema, no puedo poner un slider y jugar con el tamaño 
 ![HealthBar](images/HealthBar.png)
 
 ## 3.8. La interfaz con los detalles de la unidad
-Aquí llegamos a uno de los puntos que tiene más detalles. La interfaz de la unidad. Permite al jugador que sepa si tiene una unidad seleccionada y los atributos que tiene. En mi caso a parte de esto he añadido habilidades y el minimapa.
+Aquí llegamos a uno de los puntos que tiene más detalles. La interfaz de la unidad. Permite al jugador que sepa si tiene una unidad seleccionada y los atributos que tiene. En mi caso, a parte de esto he añadido habilidades y el minimapa.
 
 ![UINoSelected](images/UINoSelected.png)
 > UI sin unidad seleccionada
@@ -290,9 +291,9 @@ Aquí llegamos a uno de los puntos que tiene más detalles. La interfaz de la un
 
 Empezamos por la parte estética, en un canvas tengo la imagen de la cuadrícula y le he añadido las partes grises de la derecha y la que se encuentra cerca del cuadro de la izquierda.
 El resto de elementos son hijos de esta. De esta manera puedo desactivar el GameObject cuando no tengo ninguna unidad seleccionada.
-Cuando tengo una unidad seleccionada muestro la imagen de la unidad y los principales atributos, asi como el nombre y las habilidades que puede realizar.
+Cuando tengo una unidad seleccionada muestro la imagen de la unidad y los principales atributos, así como el nombre y las habilidades que puede realizar.
 La parte de la izquierda quedaría reservada para el minimapa.
-Cuando se da el caso de que selecciono múltiples unidades los datos que se muestrán son del primero que se encuentra.
+Cuando se da el caso de que selecciono múltiples unidades los datos que se muestran son del primero que se encuentra.
 En la interfaz se puede ver la imagen del soldado, sus puntos de salud totales y actuales así como la energía.
 La energía es un recurso que se utiliza para lanzar habilidades. Cada personaje tiene la suya y se regenera con el tiempo a razón de 1 por segundo (con una corutina).
 En cuanto las habilidades, son botones asociados a cada soldado. De manera que el seleccionar una unidad mostraremos los botones que tiene asociados.
@@ -302,7 +303,7 @@ Para facilitar la comprensión de las habilidades he añadido un pequeño toolti
 
 Para hacer esto he añadido un Evento al Botón saber cuando entra el cursor dentro del botón. También he añadido otro evento para detectar la salida del cursor.
 Cuando salta el evento de entrada se ejecuta una corutina que al cabo de 1.5 segundos muestra el tooltip y llena el texto con la información del botón al que estamos apuntando.
-Por otro lado cuando salta el evento en el que el cursor deja de estar encima del bóton se esconde el tooltip. Para evitar cosas raras también he añadido que pare la Corutina por si se da el caso en el que simplemente a pasado el cursor rápidamente por encima del botón.
+Por otro lado cuando salta el evento en el que el cursor deja de estar encima del botón se esconde el tooltip. Para evitar cosas raras también he añadido que pare la Corutina por si se da el caso en el que simplemente a pasado el cursor rápidamente por encima del botón.
 
 ## 3.9. Habilidades de los soldados
 Cada soldado dispone de habilidades diferentes y únicas y esto se refleja en esta pequeña parte de la interfaz.
@@ -313,13 +314,13 @@ Cada soldado dispone de habilidades diferentes y únicas y esto se refleja en es
 ![SniperHabilities](images/SniperHabilities.png)
 
 Las habilidades se pueden dividir en tres tipos:
-- Habilidades de selección de area: Estas indican un área concreta del mapa y su efecto se produce dentro de esta area. De este tipo tenemos las que afectan solo a aliados y las que afectan solo a enemigos.
-- Habilidades de area: Una habiliad que activa su efecto a todas las unidades dentro de un rango determinado.
+- Habilidades de selección de área: Estas indican un área concreta del mapa y su efecto se produce dentro de esta área. De este tipo tenemos las que afectan solo a aliados y las que afectan solo a enemigos.
+- Habilidades de área: Una habilidad que activa su efecto a todas las unidades dentro de un rango determinado.
 - Habilidades de selección: Habilidad que solo afecta a una unidad, la que se ha seleccionado. De este tipo tenemos las que afectan solo a aliados y las que afectan solo a enemigos.
 
-### 3.9.1 Habilidades de selección de area
+### 3.9.1 Habilidades de selección de área
 Cuando se pulsa en el botón de esta habilidad se muestra el rango de esta y la zona a la que afecta.
-En el caso de que la habilidad afecte a los enemigos el area de acción será roja:
+En el caso de que la habilidad afecte a los enemigos el área de acción será roja:
 
 ![habilityAreaEnemies](images/HabilityAreaEnemy.png)
 
@@ -327,24 +328,24 @@ En el caso de que sea para los aliados será de color verde.
 
 ![habilityAreaAlies](images/HabilityAreaAlies.png)
 
-En las imágenes podemos ver dos areas: La blanca translúcida y la del círculo.
-La primera se proyecta desde la posición del soldado y tiene un tamaño igual al area de alcance de la habilidad. Si usamos la habilidad con el cursor dentro de esta area la habilidad será lanzada. Si estamos fuera del area no ocurrirá nada.
-Internamente, cuando pulsamos el botón de este tipo de habilidad indicamos que estamos utilizando una habilidad de selección por lo que las unidades ni se moverán ni atacarán. En el momento de hacer clic con el botón izquierdo miramos si la posición del cursor esta dentro del rango de la habilidad. Esto es un valor que hace de radio para trazar el circulo. Si esta dentro se hace un BoxCastAll con el diámetro del area de effecto y todos los enemigos dentro del area son notificados de que han sido alcanzados. 
+En las imágenes podemos ver dos áreas: La blanca translúcida y la del círculo.
+La primera se proyecta desde la posición del soldado y tiene un tamaño igual al área de alcance de la habilidad. Si usamos la habilidad con el cursor dentro de esta área la habilidad será lanzada. Si estamos fuera del área no ocurrirá nada.
+Internamente, cuando pulsamos el botón de este tipo de habilidad indicamos que estamos utilizando una habilidad de selección por lo que las unidades ni se moverán ni atacarán. En el momento de hacer clic con el botón izquierdo miramos si la posición del cursor esta dentro del rango de la habilidad. Esto es un valor que hace de radio para trazar el circulo. Si esta dentro se hace un BoxCastAll con el diámetro del área de efecto y todos los enemigos dentro del área son notificados de que han sido alcanzados. 
 Cuando la habilidad sea lanzada correctamente se mostrará la animación y el sonido. La habilidad entrara en cooldown y consumirá energía a la unidad.
 Ocurre la misma funcionalidad para el caso de la habilidad que afecta a los aliados.
 
-### 3.9.2. Habilidades de area
+### 3.9.2. Habilidades de área
 Estas habilidades solo afectan a los aliados que estén dentro de su rango. El funcionamiento es simple. Pulsamos el botón, se ejecuta la habilidad y afecta a todas las unidades que estén al alcance.
 Esto lo hace con un CircleCastAll tomando como posición la posición del soldado que ejecuta la habilidad, y el radio como el alcance de la habilidad.
 Para mostrar un poco de feedback al jugador, todos los aliados que hayan sido afectados por la habilidad mostrarán un sistema de partículas.
 
 ![particles](images/particles.png)
 
-Cada habilidad tiene una llamada diferente pues cada uno modifica diferentes atributos durante un tiempo diferente. Esto se controla con el método que llamo a todas las unidades dentro del area. Mediante una corutina se añade el efecto, se modifican los valores y pasado el tiempo de actuación se restauran los valores originales.
+Cada habilidad tiene una llamada diferente, pues cada uno modifica diferentes atributos durante un tiempo diferente. Esto se controla con el método que llamo a todas las unidades dentro del área. Mediante una corutina se añade el efecto, se modifican los valores y pasado el tiempo de actuación se restauran los valores originales.
 
 ### 3.9.3. Habilidades de selección
 
-Estas habilidades solo afectan a la unidad seleccionada. Su funcionamento es similar a las habilidades de area. A partir del momento en el que se activa la habilidad, mostramos un círculo blanco mostrando el area de efecto y un puntero para indicar que solo afecta a una unidad. Seguidamente se mira si el próximo clic izquierdo emite un RayCast y impacta con una unidad. Si la habilidad solo afecta a enemigos miramos que el objeto colisionado sea un enemigo, si es un aliado, pues un aliado.
+Estas habilidades solo afectan a la unidad seleccionada. Su funcionamiento es similar a las habilidades de área. A partir del momento en el que se activa la habilidad, mostramos un círculo blanco mostrando el área de efecto y un puntero para indicar que solo afecta a una unidad. Seguidamente se mira si el próximo clic izquierdo emite un RayCast y impacta con una unidad. Si la habilidad solo afecta a enemigos miramos que el objeto colisionado sea un enemigo, si es un aliado, pues un aliado.
 
 ![targetAlies](images/targetAlies.png)
 
@@ -367,19 +368,19 @@ También se bloquea el botón si la unidad no tiene suficiente energía.
 ![NoEnergy](images/NoEnergy.png)
 
 ## 3.11. El minimapa (sin completar)
-Por tema de tiempo no he podido terminar la funcionalidad del minimapa. De momento lo que tengo es una cámara secundaria con un minimap render. Esta cámara solo coge elementos que esten en la layer de minimapa.
+Por tema de tiempo no he podido terminar la funcionalidad del minimapa. De momento lo que tengo es una cámara secundaria con un minimap render. Esta cámara solo coge elementos que estén en la layer de minimapa.
 Por otro lado tengo una imagen que muestra el render del minimap.
 La idea que tenía es que cada elemento de la escena tenga una imagen cuadrada en la layer del minimap que manera que se viera el escenario de forma esquemática.
 
 ## 3.12. Movimiento de las unidades
 Para implementar el movimiento de las unidades, ya sean aliadas o enemigas he utilizado el paquete Nav Mesh. Este paquete permite definir zonas por las que es posible transitar, las zonas por las que no se puede y aquellas en las que se pueda saltar. Para este caso solo he utilizado los dos primeros.
 Este paquete es un poco complejo de utilizar al principio, pero mirando la documentación y varios ejemplos una vez que se entiende es un proceso bastante mecánico.
-Basicamente tenemos tres elementos: El Nav Mesh (el camino por el que se puede o no mover), los obstaculos (zonas en las que no se puede mover o se pueden saltar) y los agentes (elementos que se mueven por el Nav Mesh).
+Básicamente tenemos tres elementos: El Nav Mesh (el camino por el que se puede o no mover), los obstáculos (zonas en las que no se puede mover o se pueden saltar) y los agentes (elementos que se mueven por el Nav Mesh).
 En primer lugar es definir la zona por la que se puede mover el agente. Para hacer esto he creado en cada mapa un BoxCollider2D que abarca todo el mapa. Seguidamente le he añadido un NavMeshModifier para indicar que todo ese collider es "Transitable".
 
 ![NavMeshModifier](images/NavMeshModifier.png)
 
-Seguidamente aplico el mismo método para las paredes y los diferentes elementos del escenario. Pero en este caso le indico que la zona no es "Transitable".
+Seguidament,e aplico el mismo método para las paredes y los diferentes elementos del escenario. Pero en este caso le indico que la zona no es "Transitable".
 Una vez que tengo las zonas indicadas queda añadir el NavMeshSurface. Este componente será el encargado de crear el Nav Mesh con los parámetros que le indiquemos.
 
 ![NavMeshSurface](images/NavMeshSurface.png)
@@ -390,7 +391,7 @@ En este punto si se ha creado el Nav Mesh al mirar la escena con el GameObject s
 
 ![Mesh](images/Mesh.png)
 
-Finalmente nos queda indicar los Agentes que se podrán mover por este mesh. Se tiene que añadir en un GameObject un Nav Mesh Agent.
+Finalmente, nos queda indicar los Agentes que se podrán mover por este mesh. Se tiene que añadir en un GameObject un Nav Mesh Agent.
 
 ![Agent](images/Agent.png)
 
@@ -404,7 +405,7 @@ Aqui he tenido varios problemas. El primero es que el Mesh no se me generaba cor
 ## 3.13. IA de los aliados
 
 Los soldados aliados no tienen IA como tal, más bien es un comportamiento concreto para unas acciones determinadas.
-En primer lugar podemos mover la unidad. Para ello debemos tener la unidad seleccionada y hacer clic con el botón derecho del ratón en una parte del mapa. En ese momento se hace un SetDestination con la posición del cursor. Si hay camino disponible se iniciará la marcha. En este momento se instanciará una animación de destino en la posición indicada que dura un par de segundos y después se destruye. Ademas el personaje tiene diferentes clips de audio con dialogos. Uno de estos se reproduce aleatoriamente al moverse.
+En primer lugar podemos mover la unidad. Para ello debemos tener la unidad seleccionada y hacer clic con el botón derecho del ratón en una parte del mapa. En ese momento se hace un SetDestination con la posición del cursor. Si hay camino disponible se iniciará la marcha. En este momento se instanciará una animación de destino en la posición indicada que dura un par de segundos y después se destruye. Además el personaje tiene diferentes clips de audio con diálogos. Uno de estos se reproduce aleatoriamente al moverse.
 
 ![MoveUnit](images/MoveIcon.png)
 
@@ -413,9 +414,9 @@ En el caso de tener varias unidades seleccionadas todas se moverán. Lo que pasa
 ![offset](images/MoveUnits.png)
 
 Este offset lo añadido en diferentes ejes para formar un cuadrado alrededor del punto indicado.
-Se de entre todas las unidades seleccionadas se mostrará la información de la primera que encontramos en la lista. Asi como las voces que se escucharán a la hora de moverse.
-Para el ataque la cosa es más complicada pues aquí si que tenemos que converger en un punto. El comportamiento que siguen es el siguiente. Van hacia el punto indicado y cuando el enemigo esta al alcance paran y miran si tienen algún obstaculo para disparar. Si lo tienen realizan hasta un máximo de tres intentos de esquivarlo y si lo tienen a tiro disparan. Esto se hace mediante LineCast, se tiene que poder llegar desde la posición del soldado hasta la del enemigo sin cochar con otra cosa. En el momento que pueden disparar se activa una corutina en el que dependiendo de la velocidad de ataque se haran más o menos rápidos. Este evento se cancela si la unidad muere, se mueve o el enemigo al que ataca a muerto.
-En la práctica no he conseguido que el ataque sea todo lo fluído que quiero cuando tenemos las cuatro unidades muy a menudo se estorban entre ellas. Especialmente en escenarios cerrados.
+Se de entre todas las unidades seleccionadas se mostrará la información de la primera que encontramos en la lista. Así como las voces que se escucharán a la hora de moverse.
+Para el ataque la cosa es más complicada pues aquí si que tenemos que converger en un punto. El comportamiento que siguen es el siguiente. Van hacia el punto indicado y cuando el enemigo esta al alcance paran y miran si tienen algún obstáculo para disparar. Si lo tienen realizan hasta un máximo de tres intentos de esquivarlo y si lo tienen a tiro disparan. Esto se hace mediante LineCast, se tiene que poder llegar desde la posición del soldado hasta la del enemigo sin chocar con otra cosa. En el momento que pueden disparar se activa una corutina en el que dependiendo de la velocidad de ataque se harán más o menos rápidos. Este evento se cancela si la unidad muere, se mueve o el enemigo al que ataca a muerto.
+En la práctica no he conseguido que el ataque sea todo lo fluido que quiero cuando tenemos las cuatro unidades muy a menudo se estorban entre ellas. Especialmente en escenarios cerrados.
 
 ![attack](images/Attack.png)
 
@@ -430,7 +431,7 @@ Si durante la acción de atacar mata al soldado su comportamiento pasa al estado
 
 # 4. Cosas que han faltado
 Como en todas las PEC de esta asignatura siempre hay cosas que me faltan por hacer. En este caso a sido terminar el mapa y mejorar el movimiento de los soldados al atacar.
-Finalmente me hubiera gustado implementar la llamada "Niebla de Guerra".
+Finalmente, me hubiera gustado implementar la llamada "Niebla de Guerra".
 Pero bueno, como un primer acercamiento a los RTS y con el tiempo que disponía creo que el resultado es aceptable.
 
 # 5. Recursos de terceros utilizados
