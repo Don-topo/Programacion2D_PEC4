@@ -303,7 +303,7 @@ TextureImporter:
       213: 2983796907292953725
     second: release_v1.2_99
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -324,6 +324,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -332,9 +333,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -362,6 +363,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -377,6 +379,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2500,6 +2514,107 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      release_v1.2_0: -7292980319670672061
+      release_v1.2_1: -1030855035995962609
+      release_v1.2_10: -6558539967554468010
+      release_v1.2_11: -4173895490450999877
+      release_v1.2_12: 1814321337017252283
+      release_v1.2_13: -5320693050194428546
+      release_v1.2_14: 4210817557799045156
+      release_v1.2_15: 3048454489362992394
+      release_v1.2_16: -225800458953983391
+      release_v1.2_17: -4741709788121682056
+      release_v1.2_18: 4699321930567004572
+      release_v1.2_19: -8434808117429961458
+      release_v1.2_2: -220248116001700515
+      release_v1.2_20: 4634406729999819279
+      release_v1.2_21: 2683624574715814741
+      release_v1.2_22: -7272060875587824235
+      release_v1.2_23: -5525376746042624777
+      release_v1.2_24: 8932130814153087292
+      release_v1.2_25: 2450015216007869224
+      release_v1.2_26: -2881796083712293569
+      release_v1.2_27: -4605067120126419443
+      release_v1.2_28: 8807522965545728778
+      release_v1.2_29: 7303253293631048585
+      release_v1.2_3: -2317392191288413952
+      release_v1.2_30: 1978512200022959455
+      release_v1.2_31: -5722574796090563819
+      release_v1.2_32: 7275414620600036173
+      release_v1.2_33: -2048831932476393389
+      release_v1.2_34: -1859407406937276283
+      release_v1.2_35: -7514731774376447500
+      release_v1.2_36: 5664377438306839080
+      release_v1.2_37: 3909212269490177266
+      release_v1.2_38: 4031521543216884073
+      release_v1.2_39: -5427669413010563267
+      release_v1.2_4: -3977926154390889631
+      release_v1.2_40: 5968936892295483699
+      release_v1.2_41: 2206297794771097487
+      release_v1.2_42: -5041531480436496497
+      release_v1.2_43: 1265799383307333323
+      release_v1.2_44: 2118838731665811002
+      release_v1.2_45: -3528776565097866185
+      release_v1.2_46: 4298746016097391223
+      release_v1.2_47: 8118570680226325958
+      release_v1.2_48: -8586422380614463425
+      release_v1.2_49: 5275470299747593812
+      release_v1.2_5: 8819344942928427124
+      release_v1.2_50: 5835661058701077386
+      release_v1.2_51: -2870198685971072838
+      release_v1.2_52: -5414491320479260405
+      release_v1.2_53: -4541641736659173238
+      release_v1.2_54: 2603260090815927654
+      release_v1.2_55: -5893800663679023398
+      release_v1.2_56: -8540969186329580863
+      release_v1.2_57: 949155980521528692
+      release_v1.2_58: 6094171935231558844
+      release_v1.2_59: 5232561116520937301
+      release_v1.2_6: -6970658972527157236
+      release_v1.2_60: 1106642410925645510
+      release_v1.2_61: -7828405974434570146
+      release_v1.2_62: -2246762277774700750
+      release_v1.2_63: -970906346590995028
+      release_v1.2_64: 1717910642735642093
+      release_v1.2_65: 8350138419715484809
+      release_v1.2_66: 1550191574408127875
+      release_v1.2_67: 6848122841912993618
+      release_v1.2_68: 6117346179864660885
+      release_v1.2_69: -4961374248884458173
+      release_v1.2_7: -1091190464458702036
+      release_v1.2_70: 2595009174583692463
+      release_v1.2_71: -7273905569713425756
+      release_v1.2_72: -7888715667297440871
+      release_v1.2_73: 7772137850971454768
+      release_v1.2_74: -893974338556838719
+      release_v1.2_75: -6561113072095028684
+      release_v1.2_76: 552659670481858688
+      release_v1.2_77: -8496100846766606905
+      release_v1.2_78: -2187831415914646702
+      release_v1.2_79: 8969028286525861293
+      release_v1.2_8: 8852288863635333377
+      release_v1.2_80: -3277941319316765568
+      release_v1.2_81: 6028250496633970580
+      release_v1.2_82: 444527329398897704
+      release_v1.2_83: 1966841293053200156
+      release_v1.2_84: -2960635679681334885
+      release_v1.2_85: -1396927166859819675
+      release_v1.2_86: 3811025186423875765
+      release_v1.2_87: -4689041805310132926
+      release_v1.2_88: 775773250152957098
+      release_v1.2_89: 5878566373602507743
+      release_v1.2_9: 2462041452122152124
+      release_v1.2_90: 5673094731226391404
+      release_v1.2_91: 4528725007348046939
+      release_v1.2_92: 4756772534750124731
+      release_v1.2_93: 6021168859512988228
+      release_v1.2_94: -3567078830265865498
+      release_v1.2_95: 4672902658779666583
+      release_v1.2_96: 3977366460457049894
+      release_v1.2_97: 26105476144929280
+      release_v1.2_98: 5555081290369022873
+      release_v1.2_99: 2983796907292953725
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -666,7 +666,7 @@ TextureImporter:
       213: 9029999002248532120
     second: tileset_compressed_220
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -687,6 +687,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -695,9 +696,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -725,6 +726,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -740,6 +742,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -5404,6 +5418,228 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      tileset_compressed_0: 2733693416405309051
+      tileset_compressed_1: 951951926565297243
+      tileset_compressed_10: 935301125849496304
+      tileset_compressed_100: 6870717049133341120
+      tileset_compressed_101: -5211808651682746217
+      tileset_compressed_102: -8889521571589229246
+      tileset_compressed_103: 9068857980888147184
+      tileset_compressed_104: -1042204892896407327
+      tileset_compressed_105: 4350805174513634299
+      tileset_compressed_106: 5007522873188408549
+      tileset_compressed_107: 713742177938329913
+      tileset_compressed_108: -7062413270161197820
+      tileset_compressed_109: -8966040395380266994
+      tileset_compressed_11: 2605969815163900164
+      tileset_compressed_110: 3437432580423526928
+      tileset_compressed_111: 753339904350109895
+      tileset_compressed_112: -2398674975833571833
+      tileset_compressed_113: 6334878349355075549
+      tileset_compressed_114: 8820672806153420133
+      tileset_compressed_115: -347061559097829542
+      tileset_compressed_116: 2407869946257253099
+      tileset_compressed_117: 8220606082061410934
+      tileset_compressed_118: 1631511169216375321
+      tileset_compressed_119: 1729399705988273790
+      tileset_compressed_12: 6251010550090077965
+      tileset_compressed_120: 2745661500062657046
+      tileset_compressed_121: 7316152312847888776
+      tileset_compressed_122: 7399923239914965475
+      tileset_compressed_123: 5437836457043942503
+      tileset_compressed_124: -1522303561764656848
+      tileset_compressed_125: -4573524228467260988
+      tileset_compressed_126: -5742131295957945416
+      tileset_compressed_127: -5988022615934820461
+      tileset_compressed_128: 634147982011944529
+      tileset_compressed_129: -5089619646269982282
+      tileset_compressed_13: 4218048689054470112
+      tileset_compressed_130: -5972485588626513377
+      tileset_compressed_131: -586592926057242335
+      tileset_compressed_132: -6255189267960105840
+      tileset_compressed_133: 390521090884436669
+      tileset_compressed_134: 2405033796287066454
+      tileset_compressed_135: 2322650389106583756
+      tileset_compressed_136: 1569532970823819715
+      tileset_compressed_137: 8161322959388548549
+      tileset_compressed_138: 7340621983951990534
+      tileset_compressed_139: 6562205346022605556
+      tileset_compressed_14: -8155792605920196959
+      tileset_compressed_140: -2630658530567182242
+      tileset_compressed_141: -2824389473894105982
+      tileset_compressed_142: -1441624596710631061
+      tileset_compressed_143: -7656926429875933458
+      tileset_compressed_144: 5334934606742421523
+      tileset_compressed_145: 2431256398778233295
+      tileset_compressed_146: 8774793400767436850
+      tileset_compressed_147: 3365206776460792673
+      tileset_compressed_148: 459986928502117869
+      tileset_compressed_149: -5647500694783253260
+      tileset_compressed_15: -5836444029816406303
+      tileset_compressed_150: -4453994920345388392
+      tileset_compressed_151: -5350202462349685558
+      tileset_compressed_152: 1200312391041912931
+      tileset_compressed_153: -7034514082786459142
+      tileset_compressed_154: 8500588578685224534
+      tileset_compressed_155: -5355212121538037427
+      tileset_compressed_156: 4724560544741840939
+      tileset_compressed_157: 6014252004146401423
+      tileset_compressed_158: 2394502257043337831
+      tileset_compressed_159: 3426751136645947201
+      tileset_compressed_16: 6317368340870420862
+      tileset_compressed_160: -8221940086231521287
+      tileset_compressed_161: 5866758379171212094
+      tileset_compressed_162: -7614002547422455621
+      tileset_compressed_163: 950815701757830848
+      tileset_compressed_164: -2659596153348121803
+      tileset_compressed_165: -6933090556563603997
+      tileset_compressed_166: -2801486123886757581
+      tileset_compressed_167: 3888371547296058108
+      tileset_compressed_168: 3556147538851572018
+      tileset_compressed_169: 1083784971809907869
+      tileset_compressed_17: -814285587209052850
+      tileset_compressed_170: -5041236952295715288
+      tileset_compressed_171: 4221659899222798016
+      tileset_compressed_172: 956160923896024486
+      tileset_compressed_173: -3537921867941414000
+      tileset_compressed_174: -4250955102845787562
+      tileset_compressed_175: 3208427202761555260
+      tileset_compressed_176: -6962083024361312335
+      tileset_compressed_177: -687873929278920279
+      tileset_compressed_178: -355783367604923301
+      tileset_compressed_179: -7109422292262496595
+      tileset_compressed_18: -507919779888333026
+      tileset_compressed_180: -8431937059997087198
+      tileset_compressed_181: -4600353765159428990
+      tileset_compressed_182: 5013791165156635579
+      tileset_compressed_183: -1373321957502180016
+      tileset_compressed_184: -5219386155413346754
+      tileset_compressed_185: -2752292752842510720
+      tileset_compressed_186: 4537656946697742544
+      tileset_compressed_187: 6330913401579890483
+      tileset_compressed_188: -2717374209331217099
+      tileset_compressed_189: -2276611641298325237
+      tileset_compressed_19: 1970274871103319419
+      tileset_compressed_190: 2210381989711740850
+      tileset_compressed_191: -2760822810838299528
+      tileset_compressed_192: -1514673142272084841
+      tileset_compressed_193: -9145806276199756721
+      tileset_compressed_194: -1313578516451167441
+      tileset_compressed_195: -5663648465521747920
+      tileset_compressed_196: 1674711145229229070
+      tileset_compressed_197: -4044728688126055874
+      tileset_compressed_198: -4851346463066052464
+      tileset_compressed_199: 2959024341849137981
+      tileset_compressed_2: 3167360093243930849
+      tileset_compressed_20: 4529780160103537319
+      tileset_compressed_200: 9157037737765135574
+      tileset_compressed_201: 5053648596822651986
+      tileset_compressed_202: 3782603524990758702
+      tileset_compressed_203: -8483331484005391067
+      tileset_compressed_204: 5332689606591206792
+      tileset_compressed_205: 8301324182638182510
+      tileset_compressed_206: -5498814599055441292
+      tileset_compressed_207: 1410210747656638107
+      tileset_compressed_208: 1248048204163918614
+      tileset_compressed_209: 8234193039411358851
+      tileset_compressed_21: 7745743827826744646
+      tileset_compressed_210: -8065122725744486959
+      tileset_compressed_211: -1165501808516527769
+      tileset_compressed_212: 5897259525653841745
+      tileset_compressed_213: -270144709314357313
+      tileset_compressed_214: 3453073174047634189
+      tileset_compressed_215: -1364738850028308800
+      tileset_compressed_216: -7217105747443111651
+      tileset_compressed_217: -155324110228405482
+      tileset_compressed_218: -2252427893310123106
+      tileset_compressed_219: 3546807349395062484
+      tileset_compressed_22: 2346176605543368504
+      tileset_compressed_220: 9029999002248532120
+      tileset_compressed_23: 8527413199296207598
+      tileset_compressed_24: 1443044601087213101
+      tileset_compressed_25: 1637001514757857011
+      tileset_compressed_26: 4519026206147555210
+      tileset_compressed_27: 6330255507995721326
+      tileset_compressed_28: 7129041143921201165
+      tileset_compressed_29: -228368913957325121
+      tileset_compressed_3: -5430875746644659884
+      tileset_compressed_30: 9139079347136283061
+      tileset_compressed_31: -806423007459465989
+      tileset_compressed_32: 7745401314368688543
+      tileset_compressed_33: 3508269320736330354
+      tileset_compressed_34: 1093888091458219805
+      tileset_compressed_35: 987589710212917426
+      tileset_compressed_36: 2827420914649533392
+      tileset_compressed_37: -2959374146080140327
+      tileset_compressed_38: 4644046408532798603
+      tileset_compressed_39: 1247935765001957254
+      tileset_compressed_4: 9065969158527691348
+      tileset_compressed_40: 4827756200946691078
+      tileset_compressed_41: -8619784922639034698
+      tileset_compressed_42: 5833341188234139431
+      tileset_compressed_43: -7600404583404344696
+      tileset_compressed_44: -8808128828904104413
+      tileset_compressed_45: 1707227090022484721
+      tileset_compressed_46: 3685686801636445215
+      tileset_compressed_47: -4095790873557353462
+      tileset_compressed_48: -2314911525855665875
+      tileset_compressed_49: -5389073540379790510
+      tileset_compressed_5: -8131746396803126184
+      tileset_compressed_50: 3203099310759061409
+      tileset_compressed_51: 773835505044626558
+      tileset_compressed_52: 3539812908248907625
+      tileset_compressed_53: 7693569416562876826
+      tileset_compressed_54: 3347616474544861261
+      tileset_compressed_55: -2258253885134051411
+      tileset_compressed_56: -8815547467239747173
+      tileset_compressed_57: 4045987287037277195
+      tileset_compressed_58: 6163891726019663980
+      tileset_compressed_59: -4567287121721044367
+      tileset_compressed_6: 2641175280729414980
+      tileset_compressed_60: 2651158312964214806
+      tileset_compressed_61: 5346040706870137440
+      tileset_compressed_62: -4409518025105966890
+      tileset_compressed_63: 2939354004260957010
+      tileset_compressed_64: -4668861791725306078
+      tileset_compressed_65: 1465018556627595129
+      tileset_compressed_66: 1778383571171965112
+      tileset_compressed_67: 5774042539830460765
+      tileset_compressed_68: -366371337551719132
+      tileset_compressed_69: -6735017766196565063
+      tileset_compressed_7: 2170850900939346981
+      tileset_compressed_70: 4239179743326428378
+      tileset_compressed_71: -3219317081425712276
+      tileset_compressed_72: -1497993329684402851
+      tileset_compressed_73: 331204277172629108
+      tileset_compressed_74: 5836810915681333790
+      tileset_compressed_75: 2029521949688725242
+      tileset_compressed_76: -3784587437400995913
+      tileset_compressed_77: -7410590966575520411
+      tileset_compressed_78: -2603413091630365088
+      tileset_compressed_79: -5568843503040661544
+      tileset_compressed_8: -151827927436965734
+      tileset_compressed_80: -4749145448651826220
+      tileset_compressed_81: -7613831643518059357
+      tileset_compressed_82: -5371045828354123696
+      tileset_compressed_83: 7484440113363346288
+      tileset_compressed_84: -2693547979010599771
+      tileset_compressed_85: 605432085687985339
+      tileset_compressed_86: -1234872081882170470
+      tileset_compressed_87: 2641345054636635211
+      tileset_compressed_88: -6307614366658936913
+      tileset_compressed_89: 4927175624465469595
+      tileset_compressed_9: 4981586449879184532
+      tileset_compressed_90: 3905516419908002094
+      tileset_compressed_91: -931385404250448050
+      tileset_compressed_92: 8014299428606130024
+      tileset_compressed_93: -7337327756740599092
+      tileset_compressed_94: -8298827947749660807
+      tileset_compressed_95: 3512524334345210386
+      tileset_compressed_96: -6568531093971574356
+      tileset_compressed_97: -483113560724125578
+      tileset_compressed_98: -2552576354799329685
+      tileset_compressed_99: 2867622524931122439
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

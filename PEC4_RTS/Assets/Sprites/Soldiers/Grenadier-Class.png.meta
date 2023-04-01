@@ -60,7 +60,7 @@ TextureImporter:
       213: 7521215415160472460
     second: Grenadier-Class_18
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -81,6 +81,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -89,9 +90,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -119,6 +120,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -134,6 +136,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -556,6 +570,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Grenadier-Class_0: 7990796465254134520
+      Grenadier-Class_1: 2415059981345073575
+      Grenadier-Class_10: 5322281332869236114
+      Grenadier-Class_11: -2672397415437521638
+      Grenadier-Class_12: -1698201407007623319
+      Grenadier-Class_13: -4240011313855228068
+      Grenadier-Class_14: -410893073857762518
+      Grenadier-Class_15: -8781142458882915998
+      Grenadier-Class_16: 5811506483521738770
+      Grenadier-Class_17: 3918925941568236471
+      Grenadier-Class_18: 7521215415160472460
+      Grenadier-Class_2: -6022386532475317632
+      Grenadier-Class_3: -6630566801048223900
+      Grenadier-Class_4: -7369723003882100550
+      Grenadier-Class_5: 4251530661540400309
+      Grenadier-Class_6: -7446043894361576753
+      Grenadier-Class_7: -6765892648284743704
+      Grenadier-Class_8: -2109650174700663854
+      Grenadier-Class_9: 7336756411352842539
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
